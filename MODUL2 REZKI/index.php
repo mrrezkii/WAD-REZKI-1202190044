@@ -6,13 +6,16 @@
     $request = $_SERVER['REQUEST_URI'];
 
     switch ($request) {
-        case $me.'/' :
+        case $me . '/' :
             require "pages/home.php";
             break;
-        case $me.'/booking' :
+        case $me . '/home' :
+            require "pages/home.php";
+            break;
+        case $me . '/booking' :
             require "pages/booking.php";
             break;
-        case $me.'/mybooking' :
+        case $me . '/mybooking' :
             require "pages/my_booking.php";
             break;
         default:
