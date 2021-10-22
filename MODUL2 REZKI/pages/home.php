@@ -18,6 +18,9 @@
                             <img class="card-img-top"
                                  src="https://london.bridestory.com/images/c_fill,dpr_1.0,f_auto,fl_progressive,pg_1,q_80,w_680/v1/assets/IMG_0836_l7p7uz/ice-indonesia-convention-exhibition_wedding-at-ice-bsd1487580049_10.jpg"
                                  alt="Card image cap">
+                            <input name="image"
+                                   value="https://london.bridestory.com/images/c_fill,dpr_1.0,f_auto,fl_progressive,pg_1,q_80,w_680/v1/assets/IMG_0836_l7p7uz/ice-indonesia-convention-exhibition_wedding-at-ice-bsd1487580049_10.jpg"
+                                   hidden>
                             <div class="card-body">
                                 <h5 class="card-title">Nusantara Hall</h5>
                                 <input name="name" value="Nusantara Hall" hidden>
@@ -46,6 +49,9 @@
                             <img class="card-img-top"
                                  src="https://media-cdn.tripadvisor.com/media/photo-s/1a/25/06/c5/garuda-hall.jpg"
                                  alt="Card image cap">
+                            <input name="image"
+                                   value="https://media-cdn.tripadvisor.com/media/photo-s/1a/25/06/c5/garuda-hall.jpg"
+                                   hidden>
                             <div class="card-body">
                                 <h5 class="card-title">Garuda Hall</h5>
                                 <input name="name" value="Garuda Hall" hidden>
@@ -74,6 +80,8 @@
                             <img class="card-img-top"
                                  src="https://jabarprov.go.id/assets/images/berita/gambar_25191.jpg"
                                  alt="Card image cap">
+                            <input name="image" value="https://jabarprov.go.id/assets/images/berita/gambar_25191.jpg"
+                                   hidden>
                             <div class="card-body">
                                 <h5 class="card-title">Gedung Serba Guna</h5>
                                 <input name="name" value="Gedung Serba Guna" hidden>

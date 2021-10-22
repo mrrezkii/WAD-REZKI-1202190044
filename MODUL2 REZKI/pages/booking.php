@@ -12,9 +12,15 @@
             <h6 class="text-center text-light  bg-dark" style="padding: 5px;">Reserve your venue now!</h6>
             <div class="row g-0">
                 <div class="col-lg-5 col-md-5 col-sm-12 d-flex justify-content-center">
-                    <img class="m-auto p-3"
-                         src="https://id.yamaha.com/id/files/jpg_eis_hall_main_1200x600_0892d7db9d88873041cda38e6845ecfc.jpg"
-                         alt="Card image cap" height="250px">
+                    <?php if (isset($_POST['image'])) : ?>
+                        <img class="m-auto p-3"
+                             src="<?= $_POST['image'] ?>"
+                             alt="Card image cap" height="250px" width="600px">
+                    <?php else : ?>
+                        <img class="m-auto p-3"
+                             src="<?= $GLOBALS['image'] ?>"
+                             alt="Card image cap" height="250px" width="600px">
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12">
                     <form action="#" method="get" class="ms-5 mt-5">
@@ -38,12 +44,18 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="building">Building Type</label>
-                            <select class="form-control" id="building" name="building">
-                                <option selected>Choose..</option>
-                                <option>Nusantara Hall</option>
-                                <option>Garuda Hall</option>
-                                <option>Gedung Serba Guna</option>
-                            </select>
+                            <?php if (isset($_POST['name'])) : ?>
+                                <select class="form-control" id="building" name="name">
+                                    <option selected><?= $_POST['name'] ?></option>
+                                </select>
+                            <?php else : ?>
+                                <select class="form-control" id="building" name="name">
+                                    <option selected>Choose..</option>
+                                    <option>Nusantara Hall</option>
+                                    <option>Garuda Hall</option>
+                                    <option>Gedung Serba Guna</option>
+                                </select>
+                            <?php endif; ?>
                         </div>
                         <div class="form-group mt-3">
                             <label for="phone">Phone Number</label>
