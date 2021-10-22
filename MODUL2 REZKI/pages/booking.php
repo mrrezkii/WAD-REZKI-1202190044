@@ -8,5 +8,6 @@
 <main>
 
 </main>
+<?php include "component/footer.php"; ?>
 </body>
 </html>

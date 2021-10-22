@@ -16,3 +16,9 @@ img {
 .card img {
     height: 250px;
 }
+
+footer {
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
