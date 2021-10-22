@@ -1,0 +1,10 @@
+section {
+    padding: 50px 0 50px 0;
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
