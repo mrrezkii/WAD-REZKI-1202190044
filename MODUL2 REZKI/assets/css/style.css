@@ -1,5 +1,5 @@
 section {
-    padding: 50px 0 50px 0;
+    padding: 10px 0 10px 0;
 }
 
 .jumbotron {
@@ -7,4 +7,12 @@ section {
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: .3rem;
+}
+
+img {
+    object-fit: cover;
+}
+
+.card img {
+    height: 250px;
 }
