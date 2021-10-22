@@ -6,7 +6,7 @@
 <body>
 <?php include "component/header.php"; ?>
 <main class="mt-5">
-    <h5 class="text-center" style="padding-top: 10px;">Thank you <?= $GLOBALS['username'] ?> for reserving</h5>
+    <h5 class="text-center" style="padding-top: 10px;">Thank you <?= $_POST['name'] ?> for reserving</h5>
     <h6 class="text-center">Please double check your reservations details</h6>
     <section id="table_reservation" style="min-height: 450px">
         <div class="container">
@@ -26,15 +26,18 @@
                 <tbody>
                 <tr class="table-light">
                     <th scope="row">#1202190044</th>
-                    <td><?= $GLOBALS['username'] ?></td>
+                    <td><?= $_POST['username'] ?></td>
                     <td>11-10-2021 10:00:00</td>
                     <td>11-10-2021 10:00:00</td>
-                    <td>Garuda Hall</td>
-                    <td>085608845319</td>
+                    <td><?= $_POST['name'] ?></td>
+                    <td><?= $_POST['phone'] ?></td>
                     <td>
                         <ul>
-                            <li>Catering</li>
-                            <li>Decoration</li>
+                            <?php
+                            foreach ($_POST['services'] as $service) {
+                                echo "<li>$service</li>";
+                            }
+                            ?>
                         </ul>
                     </td>
                     <td>$4150</td>

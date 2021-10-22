@@ -23,62 +23,67 @@
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12">
-                    <form action="#" method="get" class="ms-5 mt-5">
+                    <form action="mybooking" method="post" class="ms-5 mt-5">
                         <div class="form-group mt-3">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name"
-                                   placeholder="Enter email" value="<?= $GLOBALS['username'] ?>" readonly>
+                            <label for="username">Name</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username"
+                                   name="username"
+                                   placeholder="Enter name" value="<?= $GLOBALS['username'] ?>" readonly>
                         </div>
                         <div class="form-group mt-3">
                             <label for="event">Event Date</label>
-                            <input type="date" class="form-control" id="event" aria-describedby="event" name="event">
+                            <input type="date" class="form-control" id="event" aria-describedby="event" name="event"
+                                   required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="time">Start Time</label>
-                            <input type="time" class="form-control" id="time" aria-describedby="time" name="time">
+                            <input type="time" class="form-control" id="time" aria-describedby="time" name="time"
+                                   required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="duration">Duration (Hours)</label>
                             <input type="number" class="form-control" id="duration" aria-describedby="duration"
-                                   name="duration">
+                                   name="duration" required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="building">Building Type</label>
                             <?php if (isset($_POST['name'])) : ?>
-                                <select class="form-control" id="building" name="name">
-                                    <option selected><?= $_POST['name'] ?></option>
+                                <select class="form-control" id="building" name="name" required>
+                                    <option selected value="<?= $_POST['name'] ?>"><?= $_POST['name'] ?></option>
                                 </select>
                             <?php else : ?>
-                                <select class="form-control" id="building" name="name">
-                                    <option selected>Choose..</option>
-                                    <option>Nusantara Hall</option>
-                                    <option>Garuda Hall</option>
-                                    <option>Gedung Serba Guna</option>
+                                <select class="form-control" id="building" name="name" required>
+                                    <option value="">Choose..</option>
+                                    <option value="Nusantara Hall">Nusantara Hall</option>
+                                    <option value="Garuda Hall">Garuda Hall</option>
+                                    <option value="Gedung Serba Guna">Gedung Serba Guna</option>
                                 </select>
                             <?php endif; ?>
                         </div>
                         <div class="form-group mt-3">
                             <label for="phone">Phone Number</label>
-                            <input type="number" class="form-control" id="phone" aria-describedby="phone" name="phone">
+                            <input type="number" class="form-control" id="phone" aria-describedby="phone" name="phone"
+                                   required>
                         </div>
                         <div class="form-group mt-3">
                             <label>Add Services(s)</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="catering" id="catering"
-                                       name="catering">
+                                <input class="form-check-input" type="checkbox" value="Catering" id="catering"
+                                       name="services[]">
                                 <label class="form-check-label" for="catering">
                                     Catering / $700
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="decoration" id="decoration"
-                                       name="decoration">
+                                <input class="form-check-input" type="checkbox" value="Decoration" id="decoration"
+                                       name="services[]">
                                 <label class="form-check-label" for="decoration">
                                     Decoration / $450
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="sound" id="sound" name="sound">
+                                <input class="form-check-input" type="checkbox" value="Sound System" id="sound"
+                                       name="services[]">
                                 <label class="form-check-label" for="sound">
                                     Sound System / $250
                                 </label>
@@ -87,7 +92,6 @@
                         <div class="form-group mt-3 d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary w-100">Book</button>
                         </div>
-
                     </form>
                 </div>
             </div>
