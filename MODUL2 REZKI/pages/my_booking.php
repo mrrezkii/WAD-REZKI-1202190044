@@ -4,11 +4,26 @@
     <?php include "component/helper/head.php"; ?>
 </head>
 <body>
-<?php include "component/header.php"; ?>
+<?php
+include "component/header.php";
+$originalDate = $_POST['event'] . " " . $_POST['time'];
+$newDate = date("d-m-Y H:i", strtotime($originalDate));
+
+date_default_timezone_set('GMT');
+$checkout = date("d-m-Y H:i", (strtotime($originalDate) + 60 * 60 * $_POST['duration']));
+
+$total_price = 0;
+foreach ($_POST['services'] as $service) {
+    if ($service == 'Catering') $total_price += 700;
+    if ($service == 'Decoration') $total_price += 450;
+    if ($service == 'Sound System') $total_price += 250;
+}
+
+?>
 <main class="mt-5">
     <h5 class="text-center" style="padding-top: 10px;">Thank you <?= $_POST['name'] ?> for reserving</h5>
     <h6 class="text-center">Please double check your reservations details</h6>
-    <section id="table_reservation" style="min-height: 450px">
+    <section id="table_reservation" style="min-height: 390px">
         <div class="container">
             <table class="table">
                 <thead>
@@ -25,10 +40,10 @@
                 </thead>
                 <tbody>
                 <tr class="table-light">
-                    <th scope="row">#1202190044</th>
+                    <th scope="row"><?= rand() ?></th>
                     <td><?= $_POST['username'] ?></td>
-                    <td>11-10-2021 10:00:00</td>
-                    <td>11-10-2021 10:00:00</td>
+                    <td><?= $newDate ?></td>
+                    <td><?= $checkout ?></td>
                     <td><?= $_POST['name'] ?></td>
                     <td><?= $_POST['phone'] ?></td>
                     <td>
@@ -40,7 +55,7 @@
                             ?>
                         </ul>
                     </td>
-                    <td>$4150</td>
+                    <td><?= $total_price ?></td>
                 </tr>
                 </tbody>
             </table>
