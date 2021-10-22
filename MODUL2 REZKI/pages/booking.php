@@ -4,7 +4,13 @@
     <?php include "component/helper/head.php"; ?>
 </head>
 <body>
-<?php include "component/header.php"; ?>
+<?php
+include "component/header.php";
+$username = $GLOBALS['username'];
+$name = $_POST['name'];
+$photo = $_POST['image'];
+$photo_default = $GLOBALS['image'];
+?>
 <main class="mt-5">
     <h5 class="text-center" style="padding-top: 10px;">WELCOME TO ESD VENUE RESERVATION</h5>
     <section id="hotel">
@@ -12,14 +18,14 @@
             <h6 class="text-center text-light  bg-dark" style="padding: 5px;">Reserve your venue now!</h6>
             <div class="row g-0">
                 <div class="col-lg-5 col-md-5 col-sm-12 d-flex justify-content-center">
-                    <?php if (isset($_POST['image'])) : ?>
+                    <?php if (isset($photo)) : ?>
                         <img class="m-auto p-3"
-                             src="<?= $_POST['image'] ?>"
-                             alt="Card image cap" height="250px" width="600px">
+                             src="<?= $photo ?>"
+                             alt="photo" height="250px" width="600px">
                     <?php else : ?>
                         <img class="m-auto p-3"
-                             src="<?= $GLOBALS['image'] ?>"
-                             alt="Card image cap" height="250px" width="600px">
+                             src="<?= $photo_default ?>"
+                             alt="default" height="250px" width="600px">
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12">
@@ -28,7 +34,7 @@
                             <label for="username">Name</label>
                             <input type="text" class="form-control" id="username" aria-describedby="username"
                                    name="username"
-                                   placeholder="Enter name" value="<?= $GLOBALS['username'] ?>" readonly>
+                                   placeholder="Enter name" value="<?= $username ?>" readonly>
                         </div>
                         <div class="form-group mt-3">
                             <label for="event">Event Date</label>
@@ -47,9 +53,9 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="building">Building Type</label>
-                            <?php if (isset($_POST['name'])) : ?>
+                            <?php if (isset($name)) : ?>
                                 <select class="form-control" id="building" name="name" required>
-                                    <option selected value="<?= $_POST['name'] ?>"><?= $_POST['name'] ?></option>
+                                    <option selected value="<?= $name ?>"><?= $name ?></option>
                                 </select>
                             <?php else : ?>
                                 <select class="form-control" id="building" name="name" required>

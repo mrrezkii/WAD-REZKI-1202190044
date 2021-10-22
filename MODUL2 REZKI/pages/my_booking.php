@@ -6,11 +6,20 @@
 <body>
 <?php
 include "component/header.php";
-$originalDate = $_POST['event'] . " " . $_POST['time'];
-$newDate = date("d-m-Y H:i", strtotime($originalDate));
+
+$booking_number = rand(1000000000, 9999999999);
+$username = $_POST['username'];
 
 date_default_timezone_set('GMT');
+$originalDate = $_POST['event'] . " " . $_POST['time'];
+
+$checkin = date("d-m-Y H:i", strtotime($originalDate));
 $checkout = date("d-m-Y H:i", (strtotime($originalDate) + 60 * 60 * $_POST['duration']));
+
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+
+$services_array = $_POST['services'];
 
 $total_price = 0;
 foreach ($_POST['services'] as $service) {
@@ -21,14 +30,14 @@ foreach ($_POST['services'] as $service) {
 
 ?>
 <main class="mt-5">
-    <h5 class="text-center" style="padding-top: 10px;">Thank you <?= $_POST['name'] ?> for reserving</h5>
+    <h5 class="text-center" style="padding-top: 10px;">Thank you <?= $username ?> for reserving</h5>
     <h6 class="text-center">Please double check your reservations details</h6>
     <section id="table_reservation" style="min-height: 390px">
         <div class="container">
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Booking</th>
+                    <th scope="col">Booking Number</th>
                     <th scope="col">Name</th>
                     <th scope="col">Check-in</th>
                     <th scope="col">Check-out</th>
@@ -40,22 +49,22 @@ foreach ($_POST['services'] as $service) {
                 </thead>
                 <tbody>
                 <tr class="table-light">
-                    <th scope="row"><?= rand() ?></th>
-                    <td><?= $_POST['username'] ?></td>
-                    <td><?= $newDate ?></td>
+                    <th scope="row"><?= $booking_number ?></th>
+                    <td><?= $username ?></td>
+                    <td><?= $checkin ?></td>
                     <td><?= $checkout ?></td>
-                    <td><?= $_POST['name'] ?></td>
-                    <td><?= $_POST['phone'] ?></td>
+                    <td><?= $name ?></td>
+                    <td><?= $phone ?></td>
                     <td>
                         <ul>
                             <?php
-                            foreach ($_POST['services'] as $service) {
+                            foreach ($services_array as $service) {
                                 echo "<li>$service</li>";
                             }
                             ?>
                         </ul>
                     </td>
-                    <td><?= $total_price ?></td>
+                    <td><?= '$' . $total_price ?></td>
                 </tr>
                 </tbody>
             </table>
