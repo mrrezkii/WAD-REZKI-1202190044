@@ -7,8 +7,6 @@
 <?php
 include "component/header.php";
 $username = USERNAME;
-$name = $_POST['name'];
-$photo = $_POST['image'];
 $photo_default = IMAGE;
 ?>
 <main class="mt-5">
@@ -18,9 +16,9 @@ $photo_default = IMAGE;
             <h6 class="text-center text-light  bg-dark" style="padding: 5px;">Reserve your venue now!</h6>
             <div class="row g-0">
                 <div class="col-lg-5 col-md-5 col-sm-12 d-flex justify-content-center">
-                    <?php if (isset($photo)) : ?>
+                    <?php if (isset($_POST['image'])) : ?>
                         <img class="m-auto p-3"
-                             src="<?= $photo ?>"
+                             src="<?= $_POST['image'] ?>"
                              alt="photo" height="250px" width="600px">
                     <?php else : ?>
                         <img class="m-auto p-3"
@@ -53,9 +51,9 @@ $photo_default = IMAGE;
                         </div>
                         <div class="form-group mt-3">
                             <label for="building">Building Type</label>
-                            <?php if (isset($name)) : ?>
+                            <?php if (isset($_POST['name'])) : ?>
                                 <select class="form-control" id="building" name="name" required>
-                                    <option selected value="<?= $name ?>"><?= $name ?></option>
+                                    <option selected value="<?= $_POST['name'] ?>"><?= $_POST['name'] ?></option>
                                 </select>
                             <?php else : ?>
                                 <select class="form-control" id="building" name="name" required>
