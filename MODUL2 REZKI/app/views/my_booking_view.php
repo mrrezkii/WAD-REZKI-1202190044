@@ -19,13 +19,13 @@ $checkout = date("d-m-Y H:i", (strtotime($originalDate) + 60 * 60 * $_POST['dura
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 
-$services_array = $_POST['services'];
-
 $total_price = 0;
-foreach ($_POST['services'] as $service) {
-    if ($service == 'Catering') $total_price += 700;
-    if ($service == 'Decoration') $total_price += 450;
-    if ($service == 'Sound System') $total_price += 250;
+if (isset($_POST['services'])) {
+    foreach ($_POST['services'] as $service) {
+        if ($service == 'Catering') $total_price += 700;
+        if ($service == 'Decoration') $total_price += 450;
+        if ($service == 'Sound System') $total_price += 250;
+    }
 }
 
 ?>
@@ -58,9 +58,15 @@ foreach ($_POST['services'] as $service) {
                     <td>
                         <ul>
                             <?php
-                            foreach ($services_array as $service) {
-                                echo "<li>$service</li>";
+
+                            if (isset($_POST['services'])) {
+                                foreach ($_POST['services'] as $service) {
+                                    echo "<li>$service</li>";
+                                }
+                            } else {
+                                echo "-";
                             }
+
                             ?>
                         </ul>
                     </td>
