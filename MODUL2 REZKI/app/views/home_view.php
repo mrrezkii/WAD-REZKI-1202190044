@@ -19,7 +19,7 @@
                                  src="https://cdn-2.tstatic.net/tribunnews/foto/images/preview/presiden-joko-widodo-resmikan-ice_20150805_023037.jpg"
                                  alt="Nusantara Hall">
                             <input name="image"
-                                   value="https://london.bridestory.com/images/c_fill,dpr_1.0,f_auto,fl_progressive,pg_1,q_80,w_680/v1/assets/IMG_0836_l7p7uz/ice-indonesia-convention-exhibition_wedding-at-ice-bsd1487580049_10.jpg"
+                                   value="https://cdn-2.tstatic.net/tribunnews/foto/images/preview/presiden-joko-widodo-resmikan-ice_20150805_023037.jpg"
                                    hidden>
                             <div class="card-body">
                                 <h5 class="card-title">Nusantara Hall</h5>
