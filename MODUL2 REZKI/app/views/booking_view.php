@@ -6,10 +6,10 @@
 <body>
 <?php
 include "component/header.php";
-$username = $GLOBALS['username'];
+$username = USERNAME;
 $name = $_POST['name'];
 $photo = $_POST['image'];
-$photo_default = $GLOBALS['image'];
+$photo_default = IMAGE;
 ?>
 <main class="mt-5">
     <h5 class="text-center" style="padding-top: 10px;">WELCOME TO ESD VENUE RESERVATION</h5>
