@@ -1,9 +1,9 @@
 <?php
 
-class MyBooking
+class MyBooking extends Controller
 {
     public function index()
     {
-        echo 'mybooking/index';
+        $this->view('my_booking_view');
     }
 }

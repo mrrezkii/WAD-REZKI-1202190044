@@ -1,9 +1,9 @@
 <?php
 
-class Booking
+class Booking extends Controller
 {
     public function index()
     {
-        echo 'booking/index';
+        $this->view('booking_view');
     }
 }

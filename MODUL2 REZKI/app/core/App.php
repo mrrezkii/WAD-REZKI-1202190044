@@ -9,6 +9,9 @@ class App
 
     public function __construct()
     {
+        $GLOBALS['username'] = 'Rezki_1202190044';
+        $GLOBALS['image'] = "https://thekasablanka.com/wp-content/uploads/2021/04/Home-About-us.png";
+        $GLOBALS['location'] = "/WAD-REZKI-1202190044/MODUL2%20REZKI";
         $url = $this->parseURL();
 
         // controller
