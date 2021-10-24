@@ -68,7 +68,7 @@ if (isset($_POST['services'])) {
                                     echo "<li>$service</li>";
                                 }
                             } else {
-                                echo "-";
+                                echo "No Service";
                             }
 
                             ?>
