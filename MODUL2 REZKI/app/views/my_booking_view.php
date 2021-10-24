@@ -26,9 +26,19 @@ elseif ($name == 'Gedung Serba Guna') $total_price += (500 * $_POST['duration'])
 
 if (isset($_POST['services'])) {
     foreach ($_POST['services'] as $service) {
-        if ($service == 'Catering') $total_price += 700;
-        if ($service == 'Decoration') $total_price += 450;
-        if ($service == 'Sound System') $total_price += 250;
+        switch ($service) {
+            case "Catering":
+                $total_price += 700;
+                break;
+            case "Decoration":
+                $total_price += 450;
+                break;
+            case "Sound System":
+                $total_price += 250;
+                break;
+            default:
+                $total_price += 0;
+        }
     }
 }
 
