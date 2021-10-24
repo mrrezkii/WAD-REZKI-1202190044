@@ -27,7 +27,7 @@
                                 <div class="card-text">
                                     <p class="text-secondary">$2000 / Hour</p>
                                     <p class="text-secondary">5000 / Capacity</p>
-                                    <input name="price" value="$2000" hidden>
+                                    <input name="price" value="2000" hidden>
                                     <input name="capacity" value="5000" hidden>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="card-text">
                                     <p class="text-secondary">$1000 / Hour</p>
                                     <p class="text-secondary">2000 / Capacity</p>
-                                    <input name="price" value="$1000" hidden>
+                                    <input name="price" value="1000" hidden>
                                     <input name="capacity" value="2000" hidden>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 <div class="card-text">
                                     <p class="text-secondary">$500 / Hour</p>
                                     <p class="text-secondary">500 / Capacity</p>
-                                    <input name="price" value="$500" hidden>
+                                    <input name="price" value="500" hidden>
                                     <input name="capacity" value="500" hidden>
                                 </div>
                             </div>

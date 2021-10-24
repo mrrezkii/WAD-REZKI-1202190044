@@ -20,6 +20,10 @@ $name = $_POST['name'];
 $phone = $_POST['phone'];
 
 $total_price = 0;
+if ($name == 'Nusantara Hall') $total_price += (2000 * $_POST['duration']);
+elseif ($name == 'Garuda Hall') $total_price += (1000 * $_POST['duration']);
+elseif ($name == 'Gedung Serba Guna') $total_price += (500 * $_POST['duration']);
+
 if (isset($_POST['services'])) {
     foreach ($_POST['services'] as $service) {
         if ($service == 'Catering') $total_price += 700;
