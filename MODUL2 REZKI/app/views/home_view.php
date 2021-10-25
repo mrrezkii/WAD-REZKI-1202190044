@@ -37,7 +37,7 @@
                                 <li class="list-group-item text-success">Cleaning Service</li>
                                 <li class="list-group-item text-success">Covid-19 Health Protocol</li>
                                 <li class="list-group-item bg-light">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Book Now">
+                                    <input class="btn btn-primary" type="add" name="submit" value="Book Now">
                                 </li>
                             </ul>
                         </div>
@@ -68,7 +68,7 @@
                                 <li class="list-group-item text-danger">No Cleaning Service</li>
                                 <li class="list-group-item text-success">Covid-19 Health Protocol</li>
                                 <li class="list-group-item bg-light">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Book Now">
+                                    <input class="btn btn-primary" type="add" name="submit" value="Book Now">
                                 </li>
                             </ul>
                         </div>
@@ -98,7 +98,7 @@
                                 <li class="list-group-item text-danger">No Cleaning Service</li>
                                 <li class="list-group-item text-success">Covid-19 Health Protocol</li>
                                 <li class="list-group-item bg-light">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Book Now">
+                                    <input class="btn btn-primary" type="add" name="submit" value="Book Now">
                                 </li>
                             </ul>
                         </div>
