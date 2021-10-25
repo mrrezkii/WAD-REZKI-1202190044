@@ -74,7 +74,7 @@ if (isset($_POST['services'])) {
                             <?php
 
                             if (isset($_POST['services'])) {
-                                for ($_POST['services'] as $service) {
+                                foreach ($_POST['services'] as $service) {
                                     echo "<li>$service</li>";
                                 }
                             } else {

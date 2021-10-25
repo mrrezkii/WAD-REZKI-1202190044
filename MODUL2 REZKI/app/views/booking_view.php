@@ -24,7 +24,7 @@ $photo_default = IMAGE;
                         <img class="m-auto p-3"
                              src="<?= $photo_default ?>"
                              alt="default" height="250px" width="600px">
-                    <?php  ?>
+                    <?php endif ?>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12">
                     <form action="mybooking" method="post" class="ms-5 mt-5">
