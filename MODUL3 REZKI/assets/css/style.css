@@ -14,12 +14,16 @@ img {
     height: 400px;
 }
 
-.view-show{
+#detail-book img {
+    height: 500px;
+}
+
+.view-show {
     visibility: visible;
     display: block;
 }
 
-.view-hide{
+.view-hide {
     visibility: hidden;
     display: none;
 }

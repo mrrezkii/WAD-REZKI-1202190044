@@ -2,38 +2,22 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Detail Buku</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet integrity="
-        sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC " crossorigin=" anonymous " type="
-        text/css" />
-    <link rel=" icon " type=" image/png " href=" assets/images/logo-ead.png " />
+    <?php include "component/helper/head.php" ?>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid mx-2">
-            <a class=" navbar-brand" href=" #home ">
-                <img src=" assets/images/logo-ead.png " alt=" " width=" 100px " />
-            </a>
-            <form class="d-flex">
-                <button class="btn btn-primary" type="submit">Tambah buku</button>
-            </form>
-        </div>
-    </nav>
-    <main>
-        <section class="m-auto shadow p-3 mb-5 bg-body rounded w-75 mt-5 p-5" id="detail-book">
-            <div class="container">
-                <h4 class="fw-bold text-center">Detail Buku</h4>
-                <center>
-                    <img class="my-3"
-                        src="https://www.gramedia.com/blog/content/images/2019/05/Sebuah-Seni-Untuk-Bersikap-Bodo-Amat-1.jpg">
-                </center>
-                <hr width="100%" size="6" class="bg-primary">
-                <form>
+<?php include "component/navigation.php"; ?>
+<main>
+    <section class="m-auto shadow p-3 mb-5 bg-body rounded w-75 mt-5 p-5" id="detail-book">
+        <div class="container">
+            <h4 class="fw-bold text-center">Detail Buku</h4>
+            <center>
+                <img class="my-3"
+                     src="https://www.gramedia.com/blog/content/images/2019/05/Sebuah-Seni-Untuk-Bersikap-Bodo-Amat-1.jpg">
+            </center>
+            <hr width="100%" size="6" class="bg-primary">
+            <form>
                     <label class="fw-bold" for="title">Judul Buku</label>
                     <p id="title mb-5">Pemrograman Web</p>
                     <label class="fw-bold" for="title">Penulis</label>
@@ -162,21 +146,9 @@
                         </div>
                     </div>
                 </div>
-        </section>
-    </main>
-    <footer class="pt-4">
-        <div class="container">
-            <div class="d-flex flex-column bd-highlight align-items-center">
-                <img class="img-fluid" src="assets/images/logo-ead.png" width="150" alt="logo">
-                <h5 class="mt-3 text-center">Perpustakaan EAD</h5>
-                <p class="text-center">&copy; Rezki_1202190044</p>
-            </div>
-        </div>
-        </div>
-    </footer>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="
-            sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin=" anonymous ">
-    </script>
+    </section>
+</main>
+<?php include "component/footer.php"; ?>
 </body>
 
 </html>
