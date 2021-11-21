@@ -1,4 +1,5 @@
 <?php
+$conn = null;
 include "helper/error.php";
 include "helper/connection.php";
 

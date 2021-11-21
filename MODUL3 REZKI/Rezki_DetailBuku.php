@@ -1,13 +1,8 @@
 <?php
+$row = null;
+$query = null;
 include "helper/constant.php";
-include "helper/error.php";
-if (!isset($_GET['id'])) {
-    header("Location: Rezki_Home.php");
-    exit();
-}
-include "helper/connection.php";
-$query = mysqli_query($conn, "SELECT * FROM Buku_Table WHERE id_buku = '$_GET[id]'");
-$row = mysqli_num_rows($query);
+include "transactions/read_detail_book.php";
 ?>
 <!DOCTYPE html>
 <html>

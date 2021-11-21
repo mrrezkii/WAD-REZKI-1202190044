@@ -1,9 +1,8 @@
 <?php
+$row = null;
+$query = null;
 include "helper/constant.php";
-include "helper/error.php";
-include "helper/connection.php";
-$query = mysqli_query($conn, "SELECT * FROM Buku_Table");
-$row = mysqli_num_rows($query);
+include "transactions/read_book.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +38,7 @@ $row = mysqli_num_rows($query);
                                          src="files/<?= $data['gambar'] ?>"
                                          alt="book">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?= $data['judul_buku'] ?></h5>
+                                        <h5 class="card-title text-truncate"><?= $data['judul_buku'] ?></h5>
                                         <p class="card-text text-truncate"><?= $data['deskripsi'] ?></p>
                                         <button class="btn btn-primary" name="id" value="<?= $data['id_buku'] ?>">
                                             Tampilkan lebih lanjut
