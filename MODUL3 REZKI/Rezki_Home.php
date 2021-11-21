@@ -60,7 +60,14 @@ include "transactions/Rezki_ReadBook.php";
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                Berhasil memasukkan buku
+                <?php
+                if (isset($_GET['deleted'])) {
+                    echo "Berhasil menghapus buku";
+                }
+                if (isset($_GET['created'])) {
+                    echo "Berhasil memasukkan buku";
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -70,7 +77,7 @@ include "transactions/Rezki_ReadBook.php";
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
 
-    if (params['created']) {
+    if (params['created'] || params['deleted']) {
         const toastElList = [].slice.call(document.querySelectorAll('.toast'));
         let toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl)
