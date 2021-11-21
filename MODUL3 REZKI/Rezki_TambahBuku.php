@@ -45,11 +45,11 @@
                     </div>
                     <div class="form-group mb-4">
                         <label class="fw-bold me-5" for="language">Bahasa</label>
-                        <input class="form-check-input" type="radio" value="id" id="id" name="language" required>
+                        <input class="form-check-input" type="radio" value="Indonesia" id="id" name="language" required>
                         <label class="form-check-label me-3" for="id">
                             Indonesia
                         </label>
-                        <input class="form-check-input" type="radio" value="other" id="other" name="language"
+                        <input class="form-check-input" type="radio" value="Lainnya" id="other" name="language"
                                required>
                         <label class="form-check-label me-3" for="other">
                             Lainnya
