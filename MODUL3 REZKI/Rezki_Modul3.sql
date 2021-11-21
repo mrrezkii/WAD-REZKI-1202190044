@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 21, 2021 at 06:44 PM
+-- Generation Time: Nov 21, 2021 at 07:32 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -33,15 +33,15 @@ time_zone = "+00:00";
 
 CREATE TABLE `Buku_Table`
 (
-    `id_buku`      int                                                           NOT NULL,
-    `judul_buku`   varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-    `penulis_buku` varchar(225)                                                  NOT NULL,
-    `tahun_terbit` int                                                           NOT NULL,
-    `deskripsi`    text                                                          NOT NULL,
-    `gambar`       varchar(255)                                                  NOT NULL,
-    `tag`          varchar(255)                                                  NOT NULL,
-    `bahasa`       varchar(255)                                                  NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `id_buku`      int                                     NOT NULL,
+    `judul_buku`   varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+    `penulis_buku` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+    `tahun_terbit` int                                     NOT NULL,
+    `deskripsi`    text COLLATE utf8mb4_general_ci         NOT NULL,
+    `gambar`       varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+    `tag`          varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+    `bahasa`       varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Buku_Table`
@@ -51,9 +51,7 @@ INSERT INTO `Buku_Table` (`id_buku`, `judul_buku`, `penulis_buku`, `tahun_terbit
                           `bahasa`)
 VALUES (1, 'Sebuah Seni untuk Bersikap Bodo Amat', 'Rezki_1202190044', 2016,
         'Sebuah Seni untuk Bersikap Bodo Amat: Pendekatan yang Waras Demi Menjalani Hidup yang Baik atau The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life adalah buku pertama Mark Manson, seorang narablog kenamaan dengan lebih dari 2 juta pembaca. Dia tinggal di kota New York',
-        'buku1.jpg', 'Lainnya', 'Indonesia'),
-       (2, 'User Guide : Monitor Acer', 'Rezki_1202190044', 2021, 'Mempelajari cara penggunaan monitor acer',
-        'buku2.jpeg', 'Lainnya', 'Indonesia');
+        'buku1.jpg', 'Lainnya', 'Indonesia');
 
 --
 -- Indexes for dumped tables
@@ -73,7 +71,7 @@ ALTER TABLE `Buku_Table`
 -- AUTO_INCREMENT for table `Buku_Table`
 --
 ALTER TABLE `Buku_Table`
-    MODIFY `id_buku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+    MODIFY `id_buku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
