@@ -3,7 +3,7 @@
         <div class="d-flex flex-column bd-highlight align-items-center">
             <img class="img-fluid" src="assets/images/logo-ead.png" width="150" alt="logo">
             <h5 class="mt-3 text-center">Perpustakaan EAD</h5>
-            <p class="text-center">&copy; Rezki_1202190044</p>
+            <p class="text-center">&copy; <?= USERNAME ?></p>
         </div>
     </div>
     </div>

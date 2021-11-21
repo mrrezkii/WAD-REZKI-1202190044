@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +28,7 @@
                     <div class="form-group mb-4">
                         <label class="fw-bold" for="author">Penulis</label>
                         <input type="text" class="form-control mt-2" id="author" name="author"
-                               aria-describedby="authorHelp" placeholder="Rezki_1202190044" value="Rezki_1202190044"
+                               aria-describedby="authorHelp" placeholder="<?= USERNAME ?>" value="Rezki_1202190044"
                                required readonly autocomplete="off">
                     </div>
                     <div class="form-group mb-4">
@@ -54,27 +57,27 @@
                     </div>
                     <div class="form-group mb-4">
                         <label class="fw-bold me-5" for="tag">Tag</label>
-                            <input class="form-check-input" type="checkbox" value="Pemrograman" id="pemrograman"
-                                name="tag[]">
-                            <label class="form-check-label me-3" for="pemrograman">
-                                Pemrograman
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="Website" id="website" name="tag[]">
-                            <label class="form-check-label me-3" for="website">
-                                Website
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="Java" id="java" name="tag[]">
-                            <label class="form-check-label me-3" for="java">
-                                Java
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="MVC" id="mvc" name="tag[]">
-                            <label class="form-check-label me-3" for="mvc">
-                                MVC
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="Kalkulus" id="kalkulus" name="tag[]">
-                            <label class="form-check-label me-3" for="kalkulus">
-                                Kalkulus
-                            </label>
+                        <input class="form-check-input" type="checkbox" value="Pemrograman" id="pemrograman"
+                               name="tag[]">
+                        <label class="form-check-label me-3" for="pemrograman">
+                            Pemrograman
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="Website" id="website" name="tag[]">
+                        <label class="form-check-label me-3" for="website">
+                            Website
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="Java" id="java" name="tag[]">
+                        <label class="form-check-label me-3" for="java">
+                            Java
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="MVC" id="mvc" name="tag[]">
+                        <label class="form-check-label me-3" for="mvc">
+                            MVC
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="Kalkulus" id="kalkulus" name="tag[]">
+                        <label class="form-check-label me-3" for="kalkulus">
+                            Kalkulus
+                        </label>
                         <input class="form-check-input" type="checkbox" value="Lainnya" id="lainnya" name="tag[]">
                         <label class="form-check-label me-3" for="lainnya">
                             Lainnya
