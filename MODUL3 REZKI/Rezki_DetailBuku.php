@@ -57,18 +57,22 @@ include "transactions/Rezki_ReadBookById.php";
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Sunting</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" method="POST">
+                        <form action="transactions/Rezki_UpdateBook.php" method="POST">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Sunting</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
                                 <div class="form-group mb-4">
                                     <label class="fw-bold" for="title">Judul Buku</label>
                                     <input type="text" class="form-control mt-2" id="title" name="title"
                                            aria-describedby="titleHelp"
                                            placeholder="Contoh: Pemrograman Web Bersama EAD"
                                            value="<?= $data['judul_buku'] ?>"
+                                           required>
+                                    <input type="text" name="id"
+                                           value="<?= $data['id_buku'] ?>" hidden
                                            required>
                                 </div>
                                 <div class="form-group mb-4">
@@ -81,15 +85,15 @@ include "transactions/Rezki_ReadBookById.php";
                                     <label class="fw-bold" for="year">Tahun Terbit</label>
                                     <input type="text" class="form-control mt-2" id="year" name="year"
                                            aria-describedby="yearHelp"
-                                           placeholder="Contoh: 1990" <?= $data['tahun_terbit'] ?> required>
+                                           placeholder="Contoh: 1990" value="<?= $data['tahun_terbit'] ?>" required>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="fw-bold" for="description">Deskripsi</label>
                                     <textarea class="form-control mt-2" id="description" name="description"
                                               aria-describedby="descriptionHelp" rows="5"
                                               placeholder="Contoh: Buku ini menjelaskan tentang ...." required>
-                                            <?= preg_replace('~\x{00a0}~siu', '', $data['deskripsi']); ?>
-                                        </textarea>
+                                                <?= preg_replace('~\x{00a0}~siu', '', $data['deskripsi']); ?>
+                                            </textarea>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="fw-bold me-5" for="language">Bahasa</label>
@@ -151,12 +155,13 @@ include "transactions/Rezki_ReadBookById.php";
                                         Lainnya
                                     </label>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                            <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                        </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
