@@ -51,8 +51,32 @@ include "transactions/Rezki_ReadBook.php";
                 </div>
         </section>
     <?php endif ?>
-
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="assets/images/logo-ead.png" class="rounded me-2" alt="Logo EAD" width="20">
+                <strong class="me-auto">Perpustakaan EAD</strong>
+                <small>Just now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Berhasil memasukkan buku
+            </div>
+        </div>
+    </div>
 </main>
 <?php include "component/footer.php"; ?>
+<script type="text/javascript">
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    if (params['created']) {
+        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        let toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show())
+    }
+</script>
 </body>
 </html>

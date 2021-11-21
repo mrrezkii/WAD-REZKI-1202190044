@@ -3,8 +3,6 @@ $server = "localhost";
 $user = "rezki";
 $password = "1202190044";
 $db = "Modul3";
-$direktori = "foto/";
-
 
 $conn = mysqli_connect($server, $user, $password, $db);
 if (!$conn) {
