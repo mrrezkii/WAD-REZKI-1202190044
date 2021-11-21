@@ -177,6 +177,7 @@ include "transactions/Rezki_ReadBookById.php";
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     <?php } ?>
 </main>

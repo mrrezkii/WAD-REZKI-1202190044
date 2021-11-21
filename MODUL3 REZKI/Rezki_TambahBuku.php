@@ -18,7 +18,7 @@ include "helper/constant.php";
         <div class="container">
             <div class="content-page">
                 <h4 class="fw-bold text-center">Tambah Data Buku</h4>
-                <form action="#" method="POST">
+                <form action="transactions/Rezki_CreateBook.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group mb-4">
                         <label class="fw-bold" for="title">Judul Buku</label>
                         <input type="text" class="form-control mt-2" id="title" name="title"
