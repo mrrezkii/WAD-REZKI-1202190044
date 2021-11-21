@@ -55,7 +55,7 @@ include "transactions/Rezki_ReadBookById.php";
                 </form>
             </div>
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <form action="transactions/Rezki_UpdateBook.php" method="POST">
                             <div class="modal-header">
@@ -194,11 +194,35 @@ include "transactions/Rezki_ReadBookById.php";
             </div>
         </section>
     <?php } ?>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToastUpdate" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="assets/images/logo-ead.png" class="rounded me-2" alt="Logo EAD" width="20">
+                <strong class="me-auto">Perpustakaan EAD</strong>
+                <small>Just now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Berhasil memperbarui data buku
+            </div>
+        </div>
+    </div>
 </main>
 <?php include "component/footer.php"; ?>
 <script type="text/javascript">
     let output = document.getElementById("description").value.trim();
     document.getElementById("description").innerHTML = output;
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    if (params['updated']) {
+        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        let toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show())
+    }
 </script>
 </body>
 
