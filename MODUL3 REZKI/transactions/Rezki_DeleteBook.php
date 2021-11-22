@@ -3,7 +3,7 @@ $conn = null;
 include "../helper/error.php";
 include "../helper/connection.php";
 
-$id = $_POST['id'];
+$id = $_POST['id_buku'];
 $image = $_POST['image'];
 $dir = "../files/$image";
 

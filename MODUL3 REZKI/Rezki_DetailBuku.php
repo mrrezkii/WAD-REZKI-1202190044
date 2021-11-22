@@ -16,7 +16,7 @@ include "transactions/Rezki_ReadBookById.php";
 <?php include "component/navigation.php"; ?>
 <main>
     <?php if ($row != 0 || $row != null) {
-        $data = mysqli_fetch_array($query)
+        $data = mysqli_fetch_row($query)
         ?>
         <section class="m-auto shadow p-3 mb-5 bg-body rounded w-75 mt-5 p-5" id="detail-book">
             <div class="container">
