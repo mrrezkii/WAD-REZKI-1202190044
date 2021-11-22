@@ -19,7 +19,7 @@ $row = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Buku_Table")) + 1;
 try {
     if ($extAllowed) {
         $fileName = 'buku' . '' . $row . '' . '.' . pathinfo($imageName, PATHINFO_EXTENSION);
-        $query = mysqli_query($conn, "UPDATE INTO Buku_Table VALUES (null, '$title', '$author', '$year', '$description', '$fileName', '$tag', '$language');");
+        $query = mysqli_query($conn, "INSERT INTO Buku_Table VALUES (null, '$title', '$author', '$year', '$description', '$fileName', '$tag', '$language');");
         if ($query) {
             move_uploaded_file($_FILES['image']['tmp_name'], "../files/$fileName");
             header("Location: ../Rezki_Home.php?created=true");
