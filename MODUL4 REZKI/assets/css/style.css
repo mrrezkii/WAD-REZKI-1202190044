@@ -1,0 +1,12 @@
+html, body, section{
+    background-color: #FEF8E7;
+}
+
+.content-page {
+    min-height: 1000px;
+}
+
+.bg-blue, footer{
+    background-color: #8FB8F4;
+}
+
