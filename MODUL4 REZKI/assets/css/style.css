@@ -10,3 +10,15 @@ html, body, section{
     background-color: #8FB8F4;
 }
 
+.headline{
+    background-color: #92C3A2;
+}
+
+
+img {
+    object-fit: cover;
+}
+
+.card img {
+    height: 150px;
+}
