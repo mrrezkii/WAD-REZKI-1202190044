@@ -36,12 +36,18 @@ if (isset($_SESSION['logged_in'])) {
                             <div class="form-group mb-4">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control mt-2" id="email" name="email"
-                                       aria-describedby="emailHelp" placeholder="Masukkan Alamat E-Mail" required/>
+                                       aria-describedby="emailHelp" placeholder="Masukkan Alamat E-mail"
+                                       value="<?php if (isset($_COOKIE['logged_in'])) {
+                                           echo $_COOKIE['logged_in']['email'];
+                                       } ?>" autocomplete="off" required/>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password">Kata Sandi</label>
                                 <input type="password" class="form-control mt-2" id="password" name="password"
-                                       aria-describedby="passwordHelp" placeholder="Kata Sandi Anda" required/>
+                                       aria-describedby="passwordHelp" placeholder="Kata Sandi Anda"
+                                       value="<?php if (isset($_COOKIE['logged_in'])) {
+                                           echo $_COOKIE['logged_in']['password'];
+                                       } ?>" autocomplete="off" required/>
                             </div>
                             <div class="form-check mb-4">
                                 <input type="checkbox" class="form-check-input" id="remember" name="remember"
