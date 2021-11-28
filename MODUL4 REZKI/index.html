@@ -26,7 +26,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 float-right">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#">
+                            <a href="#" class="me-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#415269"
                                     class="bi bi-cart-fill mt-2" viewBox="0 0 16 16">
                                     <path
@@ -63,69 +63,93 @@
                             </div>
                             <div class="row gx-4">
                                 <div class="col-4">
-                                    <form action="#" method="POST">
-                                        <div class="card" style="width: 20rem;">
-                                            <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
-                                                class="card-img-top" alt="Card-Images">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Raja Ampat, Papua</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
-                                                    dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
-                                                    interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
-                                                    Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <p class="fw-bold">Rp7.000.000</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <button type="submit" class="btn btn-primary w-100">Pesan Tiket</button>
-                                            </div>
+                                    <div class="card" style="width: 20rem;">
+                                        <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
+                                            class="card-img-top" alt="Card-Images">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raja Ampat, Papua</h5>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
+                                                dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
+                                                interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
+                                                Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <p class="fw-bold">Rp7.000.000</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <button onclick="btnOrder('Raja Ampat, Papua')" type="button"
+                                                class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
+                                                data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div class="col-4">
-                                    <form action="#" method="POST">
-                                        <div class="card" style="width: 20rem;">
-                                            <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
-                                                class="card-img-top" alt="Card-Images">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Gunung Bromo, Malang</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
-                                                    dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
-                                                    interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
-                                                    Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <p class="fw-bold">Rp2.000.000</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <button type="submit" class="btn btn-primary w-100">Pesan Tiket</button>
-                                            </div>
+                                    <div class="card" style="width: 20rem;">
+                                        <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
+                                            class="card-img-top" alt="Card-Images">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Gunung Bromo, Malang</h5>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
+                                                dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
+                                                interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
+                                                Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <p class="fw-bold">Rp2.000.000</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <button onclick="btnOrder('Gunung Bromo, Malang')" type="button"
+                                                class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
+                                                data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div class="col-4">
-                                    <form action="#" method="POST">
-                                        <div class="card" style="width: 20rem;">
-                                            <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
-                                                class="card-img-top" alt="Card-Images">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Tanah Lot, Bali</h5>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
-                                                    dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
-                                                    interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
-                                                    Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <p class="fw-bold">Rp5.000.000</p>
-                                                <hr width="100%" size="3" class="bg-secondary" />
-                                                <button type="submit" class="btn btn-primary w-100">Pesan Tiket</button>
-                                            </div>
+                                    <div class="card" style="width: 20rem;">
+                                        <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
+                                            class="card-img-top" alt="Card-Images">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tanah Lot, Bali</h5>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Nam ullamcorper condimentum ultrices. Fusce dignissim orci sed
+                                                dolor bibendum, vel imperdiet tortor lacinia. Fusce pharetra
+                                                interdum elit at laoreet. Cras egestas pellentesque eros ut mollis.
+                                                Vivamus eu sem quis velit gravida hendrerit eu eget lectus.</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <p class="fw-bold">Rp5.000.000</p>
+                                            <hr width="100%" size="3" class="bg-secondary" />
+                                            <button onclick="btnOrder('Tanah Lot, Bali')" type="button"
+                                                class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
+                                                data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
 
                             </div>
 
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="#" method="POST">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="bookingModalLabel">Tanggal Perjalanan</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="hidden-value">
+                                <div class="form-group mb-4">
+                                    <input type="date" class="form-control mt-2" id="date" name="date"
+                                        aria-describedby="dateHelp" required />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Tambahkan</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -167,6 +191,29 @@
     </footer>
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="
             sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin=" anonymous ">
+    </script>
+    <script type="text/javascript">
+        var myModalEl = document.getElementById('bookingModal')
+        myModalEl.addEventListener('hidden.bs.modal', function (event) {
+            document.getElementById("place").remove();
+        })
+
+
+        function btnOrder(place) {
+            var addElem = document.createElement("input");
+
+            Object.assign(addElem, {
+                id: "place",
+                type: "text",
+                hidden: "hidden",
+                name: "name",
+                value: place
+
+            });
+            const modal = document.getElementById("hidden-value");
+            modal.append(addElem);
+            console.log(addElem);
+        }
     </script>
 </body>
 
