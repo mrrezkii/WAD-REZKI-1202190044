@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "helper/constant.php";
 
 ?>
@@ -12,7 +12,17 @@ include "helper/constant.php";
 </head>
 
 <body>
-<?php include "component/navigation_logged_in.php"; ?>
+<?php
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] == true) {
+        include "component/navigation_logged_in.php";
+    } else {
+        include "component/navigation_not_logged_in.php";
+    }
+} else {
+    include "component/navigation_not_logged_in.php";
+}
+?>
 <main>
     <section class="m-auto" id="login-form">
         <div class="container">
@@ -46,7 +56,7 @@ include "helper/constant.php";
                             </div>
                             <div class="col-4">
                                 <div class="card" style="width: 20rem;">
-                                    <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
+                                    <img src="https://asset.kompas.com/crops/oUbd-oWgmK9GQitYBij1i8DX-1Y=/0x73:1280x713/750x500/data/photo/2019/07/24/5d37bf7ba9d0f.jpg"
                                          class="card-img-top" alt="Card-Images">
                                     <div class="card-body">
                                         <h5 class="card-title">Gunung Bromo, Malang</h5>
@@ -67,7 +77,7 @@ include "helper/constant.php";
                             </div>
                             <div class="col-4">
                                 <div class="card" style="width: 20rem;">
-                                    <img src="https://asset.kompas.com/crops/28S0TkvG7koDd1XpB5m9t-703Ww=/0x0:780x520/780x390/data/photo/2021/03/21/605753630590a.jpg"
+                                    <img src="https://www.rentalmobilbali.net/wp-content/uploads/2019/12/Sunset-Pura-Tanah-Lot-Bali-Twitter.jpg"
                                          class="card-img-top" alt="Card-Images">
                                     <div class="card-body">
                                         <h5 class="card-title">Tanah Lot, Bali</h5>
