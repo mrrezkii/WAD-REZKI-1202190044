@@ -15,6 +15,9 @@ if (isset($_SESSION['logged_in'])) {
 
 include "transactions/show_profile.php";
 
+$bgOcean = isset($_COOKIE['theme']) && ($_COOKIE['theme']['navbar'] === 'blue') ? 'selected' : '';
+$bgDark = isset($_COOKIE['theme']) && ($_COOKIE['theme']['navbar'] === 'dark') ? 'selected' : '';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,8 +85,8 @@ include "transactions/show_profile.php";
                                 </div>
                                 <div class="col-9">
                                     <select class="form-control" id="navbar" name="navbar" required>
-                                        <option value="blue">Blue Ocean</option>
-                                        <option value="dark">Dark Boba</option>
+                                        <option value="blue" <?= $bgOcean ?>">Blue Ocean</option>
+                                        <option value="dark" <?= $bgDark ?>">Dark Boba</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 offset-md-3">

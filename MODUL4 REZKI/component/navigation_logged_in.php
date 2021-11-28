@@ -1,4 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-blue">
+<?php
+$background = isset($_COOKIE['theme']) && ($_COOKIE['theme']['navbar'] === 'blue') ? 'bg-blue' : 'bg-secondary';
+?>
+<nav class="navbar navbar-expand-lg navbar-light <?= $background ?> ">
+
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.php">EAD Travel</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
