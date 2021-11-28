@@ -60,7 +60,7 @@ if (isset($_SESSION['logged_in'])) {
                             <center>
                                 <button type="submit" class="btn btn-primary w-25 mt-5">Login
                                 </button>
-                                <p class="mt-3">Atau belum punya akun ? <span><a href="login.php">Register</a></span>
+                                <p class="mt-3">Atau belum punya akun ? <span><a href="register.php">Register</a></span>
                                 </p>
                             </center>
                         </form>
