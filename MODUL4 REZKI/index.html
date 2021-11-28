@@ -76,7 +76,7 @@
                                             <hr width="100%" size="3" class="bg-secondary" />
                                             <p class="fw-bold">Rp7.000.000</p>
                                             <hr width="100%" size="3" class="bg-secondary" />
-                                            <button onclick="btnOrder('Raja Ampat, Papua')" type="button"
+                                            <button onclick="btnOrder('Raja Ampat, Papua', 7000000)" type="button"
                                                 class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
                                                 data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
@@ -96,7 +96,7 @@
                                             <hr width="100%" size="3" class="bg-secondary" />
                                             <p class="fw-bold">Rp2.000.000</p>
                                             <hr width="100%" size="3" class="bg-secondary" />
-                                            <button onclick="btnOrder('Gunung Bromo, Malang')" type="button"
+                                            <button onclick="btnOrder('Gunung Bromo, Malang', 2000000)" type="button"
                                                 class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
                                                 data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
@@ -116,7 +116,7 @@
                                             <hr width="100%" size="3" class="bg-secondary" />
                                             <p class="fw-bold">Rp5.000.000</p>
                                             <hr width="100%" size="3" class="bg-secondary" />
-                                            <button onclick="btnOrder('Tanah Lot, Bali')" type="button"
+                                            <button onclick="btnOrder('Tanah Lot, Bali', 5000000)" type="button"
                                                 class="btn btn-primary w-100 btn-order" data-bs-toggle="modal"
                                                 data-bs-target="#bookingModal">Pesan Tiket</button>
                                         </div>
@@ -196,23 +196,47 @@
         var myModalEl = document.getElementById('bookingModal')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
             document.getElementById("place").remove();
+            document.getElementById("location").remove();
+            document.getElementById("price").remove();
         })
 
+        function btnOrder(place, price) {
+            var dataPlace = place.split(", ");
+    
 
-        function btnOrder(place) {
-            var addElem = document.createElement("input");
-
-            Object.assign(addElem, {
+            var addPlace = document.createElement("input");
+            var addLocation = document.createElement("input");
+            var addPrice = document.createElement("input");
+            
+            Object.assign(addPlace, {
                 id: "place",
+                name: "place",
                 type: "text",
                 hidden: "hidden",
-                name: "name",
-                value: place
-
+                value: dataPlace[0]
             });
+
+            Object.assign(addLocation, {
+                id: "location",
+                name: "location",
+                type: "text",
+                hidden: "hidden",
+                value: dataPlace[1]
+            });
+
+            Object.assign(addPrice, {
+                id: "price",
+                name: "price",
+                type: "text",
+                hidden: "hidden",
+                value: price
+            });
+
             const modal = document.getElementById("hidden-value");
-            modal.append(addElem);
-            console.log(addElem);
+
+            modal.append(addPlace);
+            modal.append(addLocation);
+            modal.append(addPrice);
         }
     </script>
 </body>
