@@ -14,6 +14,8 @@ try {
     if (!$queryExecute) {
         echo "<script>alert('Delete booking input');</script>";
     }
+
+    header("refresh:0.1; URL= ../bookings.php?deleted=true");
 } catch (Exception $exception) {
     echo "ex: " . $exception;
 }

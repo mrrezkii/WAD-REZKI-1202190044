@@ -26,6 +26,9 @@ include "transactions/show_booking.php";
 <body>
 <?php include "component/navigation_logged_in.php"; ?>
 <main>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-hapus">
+        Berhasil dihapus
+    </div>
     <section class="m-auto" id="booking-form">
         <div class="container">
             <div class="content-page d-flex flex-column align-items-center px-5">
@@ -59,7 +62,7 @@ include "transactions/show_booking.php";
                                             <td><?= "Rp " . number_format($data['harga'], 2, ',', '.'); ?></td>
                                             <td>
                                                 <input type="text" name="id" value="<?= $data['id'] ?>" hidden>
-                                                <button type="submit" name="delete_btn" value="delete"
+                                                <button type="submit"
                                                         class="btn btn-danger">Hapus
                                                 </button>
                                             </td>
@@ -82,6 +85,13 @@ include "transactions/show_booking.php";
     </section>
 </main>
 <?php include "component/footer.php"; ?>
+<script type="text/javascript">
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const alertHapus = document.getElementById("alert-hapus");
+
+    if (params['deleted']) alertHapus.classList.remove("visually-hidden");
+</script>
 </body>
 
 </html>
