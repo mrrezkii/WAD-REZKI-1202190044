@@ -81,8 +81,10 @@ include "transactions/show_profile.php";
                                     <label for="navbar">Nama Navbar</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="form-control mt-2" id="navbar" name="navbar"
-                                           aria-describedby="recheckHelp" value="Blue Ocean" required/>
+                                    <select class="form-control" id="navbar" name="navbar" required>
+                                        <option value="blue">Blue Ocean</option>
+                                        <option value="dark">Dark Boba</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-6 offset-md-3">
                                     <center>

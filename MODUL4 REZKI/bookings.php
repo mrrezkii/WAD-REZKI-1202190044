@@ -1,5 +1,5 @@
 <?php
-$datas = null;
+$queryExecute = null;
 session_start();
 include "helper/constant.php";
 if (isset($_SESSION['logged_in'])) {
@@ -13,7 +13,6 @@ if (isset($_SESSION['logged_in'])) {
 }
 
 include "transactions/show_booking.php";
-var_dump($datas);
 
 ?>
 <!DOCTYPE html>
@@ -44,15 +43,20 @@ var_dump($datas);
                             </tr>
                             </thead>
                             <tboy>
-                                <?php foreach ($datas as $data) : ?>
+                                <?php
+                                $number = 0;
+                                $sum = 0;
+                                while ($data = mysqli_fetch_array($queryExecute)) {
+                                    $number++;
+                                    $sum = $sum + (int)$data['harga'];
+                                    ?>
                                     <tr>
-
                                         <form action="transactions/delete_booking.php" method="POST">
-                                            <th scope="row">1</th>
+                                            <th scope="row"><?= $number ?></th>
                                             <td><?= $data['nama_tempat'] ?></td>
                                             <td><?= $data['lokasi'] ?></td>
                                             <td><?= $data['tanggal'] ?></td>
-                                            <td><?= $data['harga'] ?></td>
+                                            <td><?= "Rp " . number_format($data['harga'], 2, ',', '.'); ?></td>
                                             <td>
                                                 <input type="text" name="id" value="<?= $data['id'] ?>" hidden>
                                                 <button type="submit" name="delete_btn" value="delete"
@@ -62,11 +66,12 @@ var_dump($datas);
                                         </form>
 
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php } ?>
                                 <tr>
                                     <th scope="row">Total</th>
                                     <td colspan="3"></td>
-                                    <td class="fw-bold" colspan="2">Rp2.000.000</td>
+                                    <td class="fw-bold"
+                                        colspan="2"><?= "Rp " . number_format($sum, 2, ',', '.'); ?></td>
                                 </tr>
                             </tboy>
                         </table>
