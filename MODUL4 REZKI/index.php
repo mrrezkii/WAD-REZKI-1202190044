@@ -110,7 +110,7 @@ if (isset($_SESSION['logged_in'])) {
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="#" method="POST">
+                    <form action="transactions/store_booking.php" method="POST">
                         <div class="modal-header">
                             <h5 class="modal-title" id="bookingModalLabel">Tanggal Perjalanan</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -118,7 +118,7 @@ if (isset($_SESSION['logged_in'])) {
                         </div>
                         <div class="modal-body" id="hidden-value">
                             <div class="form-group mb-4">
-                                <input type="date" class="form-control mt-2" id="date" name="date"
+                                <input type="date" class="form-control mt-2" id="tanggal" name="tanggal"
                                        aria-describedby="dateHelp" required/>
                             </div>
                         </div>
@@ -143,9 +143,9 @@ if (isset($_SESSION['logged_in'])) {
 
     var myModalEl = document.getElementById('bookingModal')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
-        document.getElementById("place").remove();
-        document.getElementById("location").remove();
-        document.getElementById("price").remove();
+        document.getElementById("nama_tempat").remove();
+        document.getElementById("lokasi").remove();
+        document.getElementById("harga").remove();
     })
 
     function btnOrder(place, price) {
@@ -157,24 +157,24 @@ if (isset($_SESSION['logged_in'])) {
         var addPrice = document.createElement("input");
 
         Object.assign(addPlace, {
-            id: "place",
-            name: "place",
+            id: "nama_tempat",
+            name: "nama_tempat",
             type: "text",
             hidden: "hidden",
             value: dataPlace[0]
         });
 
         Object.assign(addLocation, {
-            id: "location",
-            name: "location",
+            id: "lokasi",
+            name: "lokasi",
             type: "text",
             hidden: "hidden",
             value: dataPlace[1]
         });
 
         Object.assign(addPrice, {
-            id: "price",
-            name: "price",
+            id: "harga",
+            name: "harga",
             type: "text",
             hidden: "hidden",
             value: price
