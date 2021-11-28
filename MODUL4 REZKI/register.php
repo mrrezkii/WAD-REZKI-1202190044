@@ -21,11 +21,12 @@ include "helper/constant.php";
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
                         <hr width="100%" size="3" class="bg-secondary"/>
-                        <form action="#" method="POST">
+                        <form action="transactions/store_register.php" method="POST">
                             <div class="form-group mb-4">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control mt-2" id="name" name="name"
-                                       aria-describedby="nameHelp" placeholder="Masukkan Nama Lengkap" required/>
+                                <input type="text" class="form-control mt-2" id="name" name="nama"
+                                       aria-describedby="nameHelp" placeholder="Masukkan Nama Lengkap" required
+                                       autocomplete="off"/>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="email">Email</label>
@@ -35,7 +36,8 @@ include "helper/constant.php";
                             <div class="form-group mb-4">
                                 <label for="no_hp">Nomor Handphone</label>
                                 <input type="number" class="form-control mt-2" id="no_hp" name="no_hp"
-                                       aria-describedby="noHpHelp" placeholder="Masukkan Nomor Handphone" required/>
+                                       aria-describedby="noHpHelp" placeholder="Masukkan Nomor Handphone" required
+                                       autocomplete="off"/>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password">Kata Sandi</label>
@@ -44,15 +46,14 @@ include "helper/constant.php";
                             </div>
                             <div class="form-group mb-4">
                                 <label for="recheck">Konfirmasi Kata Sandi</label>
-                                <input type="password" class="form-control mt-2" id="recheck" name="recheck"
+                                <input type="password" class="form-control mt-2" id="recheck"
                                        aria-describedby="recheckHelp" placeholder="Konfirmasi Kata Sandi Anda"
-                                       required/>
+                                       required autocomplete="off"/>
                             </div>
                             <center>
-                                <button type="submit" href="#" class="btn btn-primary w-25 mt-5"
-                                        name="register_btn">Daftar
+                                <button type="submit" href="#" class="btn btn-primary w-25 mt-5">Daftar
                                 </button>
-                                <p class="mt-3">Atau sudah punya akun ? <span><a href="#">Login</a></span></p>
+                                <p class="mt-3">Atau sudah punya akun ? <span><a href="login.php">Login</a></span></p>
                             </center>
                         </form>
                     </div>
@@ -62,6 +63,7 @@ include "helper/constant.php";
     </section>
 </main>
 <?php include "component/footer.php"; ?>
+<script type="text/javascript" src="assets/js/check-password.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ include "helper/constant.php";
                     <div class="card-body">
                         <h5 class="card-title text-center">Login</h5>
                         <hr width="100%" size="3" class="bg-secondary"/>
-                        <form action="#" method="POST">
+                        <form action="transactions/store_login.php" method="POST">
                             <div class="form-group mb-4">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control mt-2" id="email" name="email"
@@ -33,14 +33,15 @@ include "helper/constant.php";
                                        aria-describedby="passwordHelp" placeholder="Kata Sandi Anda" required/>
                             </div>
                             <div class="form-check mb-4">
-                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember"
+                                       value="true">
                                 <label class="form-check-label" for="remember">Remember Me</label>
                             </div>
                             <center>
-                                <button type="submit" href="#" class="btn btn-primary w-25 mt-5"
-                                        name="login_btn">Login
+                                <button type="submit" class="btn btn-primary w-25 mt-5">Login
                                 </button>
-                                <p class="mt-3">Atau belum punya akun ? <span><a href="#">Register</a></span></p>
+                                <p class="mt-3">Atau belum punya akun ? <span><a href="login.php">Register</a></span>
+                                </p>
                             </center>
                         </form>
                     </div>
