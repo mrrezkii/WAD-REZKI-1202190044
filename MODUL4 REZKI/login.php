@@ -25,6 +25,9 @@ if (isset($_SESSION['logged_in'])) {
     <div class="alert alert-success hide visually-hidden" role="alert" id="alert-success">
         Berhasil registrasi
     </div>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-logout">
+        Berhasil logout
+    </div>
     <section class="m-auto" id="login-form">
         <div class="container">
             <div class="content-page d-flex flex-column align-items-center px-5">
@@ -73,8 +76,10 @@ if (isset($_SESSION['logged_in'])) {
     const params = Object.fromEntries(urlSearchParams.entries());
     const alertSuccess = document.getElementById("alert-success");
     const alertFailed = document.getElementById("alert-failed");
+    const alertLogout = document.getElementById("alert-logout");
 
     if (params['created']) alertSuccess.classList.remove("visually-hidden");
+    if (params['logout']) alertLogout.classList.remove("visually-hidden");
 
     if (params['logged_in'] !== undefined || params['logged_in'] !== null) {
         if (params['logged_in'] === "false") alertFailed.classList.remove("visually-hidden");

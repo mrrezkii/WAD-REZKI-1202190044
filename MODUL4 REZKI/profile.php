@@ -27,6 +27,9 @@ include "transactions/show_profile.php";
 <body>
 <?php include "component/navigation_logged_in.php"; ?>
 <main>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-update">
+        Berhasil update profile
+    </div>
     <section class="m-auto" id="booking-form">
         <div class="container">
             <div class="content-page d-flex flex-column align-items-center px-5">
@@ -100,6 +103,14 @@ include "transactions/show_profile.php";
 </main>
 <?php include "component/footer.php"; ?>
 <script type="text/javascript" src="assets/js/check-password.js"></script>
+<script type="text/javascript">
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const alertLogin = document.getElementById("alert-login");
+    const alertUpdate = document.getElementById("alert-update");
+
+    if (params['updated']) alertUpdate.classList.remove("visually-hidden");
+</script>
 </body>
 
 </html>

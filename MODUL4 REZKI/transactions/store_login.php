@@ -24,6 +24,7 @@ try {
             if ($remember) {
                 setcookie("logged_in[email]", $data['email'], time() + 3600, '/');
                 setcookie("logged_in[password]", $data['password'], time() + 3600, '/');
+                setcookie("logged_in[nama]", $data['nama'], time() + 3600, '/');
             }
             header("Location: ../index.php?logged_in=true");
         } else {

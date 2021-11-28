@@ -21,7 +21,13 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Loren ipsum dolor
+                            <?php
+                            if (isset($_COOKIE['logged_in'])) {
+                                echo $_COOKIE['logged_in']['nama'];
+                            } else {
+                                echo "Loren ipsum dolor";
+                            }
+                            ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <form action="transactions/store_logout.php" method="POST">
