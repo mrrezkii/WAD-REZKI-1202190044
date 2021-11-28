@@ -1,7 +1,12 @@
 <?php
-
+session_start();
 include "helper/constant.php";
-
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] == true) {
+        header("Location: index.php");
+        exit();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +19,12 @@ include "helper/constant.php";
 <body>
 <?php include "component/navigation_not_logged_in.php"; ?>
 <main>
+    <div class="alert alert-danger hide visually-hidden" role="alert" id="alert-failed">
+        Gagal login
+    </div>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-success">
+        Berhasil registrasi
+    </div>
     <section class="m-auto" id="login-form">
         <div class="container">
             <div class="content-page d-flex flex-column align-items-center px-5">
@@ -51,6 +62,19 @@ include "helper/constant.php";
     </section>
 </main>
 <?php include "component/footer.php"; ?>
+<script type="text/javascript">
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const alertSuccess = document.getElementById("alert-success");
+    const alertFailed = document.getElementById("alert-failed");
+
+    if (params['created']) alertSuccess.classList.remove("visually-hidden");
+
+    if (params['logged_in'] !== undefined || params['logged_in'] !== null) {
+        if (params['logged_in'] === "false") alertFailed.classList.remove("visually-hidden");
+    }
+
+</script>
 </body>
 
 </html>

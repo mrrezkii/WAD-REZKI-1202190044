@@ -24,11 +24,16 @@
                             Loren ipsum dolor
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <form action="transactions/store_logout.php" method="POST">
+                                <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </li>
+                            </form>
+
                         </ul>
                     </li>
                 </ul>

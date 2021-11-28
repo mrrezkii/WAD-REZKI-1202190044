@@ -22,13 +22,12 @@ try {
             $_SESSION['logged_in'] = true;
             $_SESSION['id'] = $data['id'];
             if ($remember) {
-                setcookie("logged_in[username]", $data['email'], time() + 3600);
-                setcookie("logged_in[password]", $data['password'], time() + 3600);
+                setcookie("logged_in[username]", $data['email'], time() + 3600, '/');
+                setcookie("logged_in[password]", $data['password'], time() + 3600, '/');
             }
             header("Location: ../index.php?logged_in=true");
         } else {
-            echo "<script>alert('Akun tidak ditemukan');</script>";
-            header("refresh:0.1; URL= ../login.php");
+            header("refresh:0.1; URL= ../login.php?logged_in=false");
         }
     } else {
         echo "<script>alert('Login gagal');</script>";

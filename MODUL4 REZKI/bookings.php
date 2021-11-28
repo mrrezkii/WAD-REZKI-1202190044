@@ -1,6 +1,16 @@
 <?php
 
+session_start();
 include "helper/constant.php";
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] === false || $_SESSION['logged_in'] === "false") {
+        header("Location: login.php");
+        exit();
+    }
+} else {
+    header("Location: login.php");
+    exit();
+}
 
 ?>
 <!DOCTYPE html>

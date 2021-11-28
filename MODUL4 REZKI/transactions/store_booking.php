@@ -4,7 +4,7 @@ include "../helper/error.php";
 include "../helper/connection.php";
 
 session_start();
-$id = rand(111111111111111111, 99999999999999999999);
+$id = time();
 $user_id = (int)$_SESSION['id'];
 $nama_tempat = $_POST['nama_tempat'];
 $lokasi = $_POST['lokasi'];

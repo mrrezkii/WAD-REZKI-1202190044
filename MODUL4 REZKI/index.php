@@ -24,6 +24,9 @@ if (isset($_SESSION['logged_in'])) {
 }
 ?>
 <main>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert">
+        Berhasil login
+    </div>
     <section class="m-auto" id="login-form">
         <div class="container">
             <div class="content-page d-flex flex-column align-items-center px-5">
@@ -131,6 +134,13 @@ if (isset($_SESSION['logged_in'])) {
 </main>
 <?php include "component/footer.php"; ?>
 <script type="text/javascript">
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const alert = document.getElementById("alert");
+
+    if (params['logged_in']) alert.classList.remove("visually-hidden");
+
+
     var myModalEl = document.getElementById('bookingModal')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
         document.getElementById("place").remove();
