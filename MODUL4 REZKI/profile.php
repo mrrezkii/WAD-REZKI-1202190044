@@ -34,7 +34,7 @@ include "transactions/show_profile.php";
                     <div class="card-body">
                         <h5 class="card-title text-center">Profile</h5>
                         <hr width="100%" size="3" class="bg-secondary"/>
-                        <form action="#" method="POST">
+                        <form action="transactions/update_profile.php" method="POST">
                             <div class="row g-3 align-items-center">
                                 <div class="col-3">
                                     <label for="email">Email</label>
@@ -46,7 +46,7 @@ include "transactions/show_profile.php";
                                     <label for="name">Nama</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="form-control mt-2" id="name" name="name"
+                                    <input type="text" class="form-control mt-2" id="name" name="nama"
                                            aria-describedby="nameHelp" value="<?= $datas['nama'] ?>" required/>
                                 </div>
                                 <div class="col-3">
@@ -83,8 +83,7 @@ include "transactions/show_profile.php";
                                 </div>
                                 <div class="col-md-6 offset-md-3">
                                     <center>
-                                        <button type="submit" href="#" class="btn btn-primary w-25 mt-5 mx-1"
-                                                name="save_btn">Simpan
+                                        <button type="submit" href="#" class="btn btn-primary w-25 mt-5 mx-1">Simpan
                                         </button>
                                         <button type="button" href="#"
                                                 class="btn btn-warning w-25 mt-5 mx-1">Cancel
@@ -100,6 +99,7 @@ include "transactions/show_profile.php";
     </section>
 </main>
 <?php include "component/footer.php"; ?>
+<script type="text/javascript" src="assets/js/check-password.js"></script>
 </body>
 
 </html>
