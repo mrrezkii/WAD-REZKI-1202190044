@@ -1,5 +1,6 @@
 <?php
 
+$datas = null;
 session_start();
 include "helper/constant.php";
 if (isset($_SESSION['logged_in'])) {
@@ -11,6 +12,8 @@ if (isset($_SESSION['logged_in'])) {
     header("Location: login.php");
     exit();
 }
+
+include "transactions/show_profile.php";
 
 ?>
 <!DOCTYPE html>
@@ -37,21 +40,21 @@ if (isset($_SESSION['logged_in'])) {
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="col-9">
-                                    <p id="email" class="mt-3">muhammad.rezki.ananda@gmail.com</p>
+                                    <p id="email" class="mt-3"><?= $datas['email'] ?></p>
                                 </div>
                                 <div class="col-3">
                                     <label for="name">Nama</label>
                                 </div>
                                 <div class="col-9">
                                     <input type="text" class="form-control mt-2" id="name" name="name"
-                                           aria-describedby="nameHelp" required/>
+                                           aria-describedby="nameHelp" value="<?= $datas['nama'] ?>" required/>
                                 </div>
                                 <div class="col-3">
                                     <label for="no_hp">Nomor Handphone</label>
                                 </div>
                                 <div class="col-9">
                                     <input type="number" class="form-control mt-2" id="no_hp" name="no_hp"
-                                           aria-describedby="noHpHelp" required/>
+                                           aria-describedby="noHpHelp" value="<?= $datas['no_hp'] ?>" required/>
                                 </div>
                                 <div class="col-12">
                                     <hr width="100%" size="3" class="bg-secondary"/>

@@ -1,5 +1,5 @@
 <?php
-
+$datas = null;
 session_start();
 include "helper/constant.php";
 if (isset($_SESSION['logged_in'])) {
@@ -11,6 +11,8 @@ if (isset($_SESSION['logged_in'])) {
     header("Location: login.php");
     exit();
 }
+
+include "transactions/show_profile.php";
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +46,7 @@ if (isset($_SESSION['logged_in'])) {
                             <tr>
                                 <form action="#" method="POST">
                                     <th scope="row">1</th>
-                                    <td>Tanah Lot</td>
+                                    <td></td>
                                     <td>Bali</td>
                                     <td>2021-27-11</td>
                                     <td>Rp2.000.000</td>
@@ -56,6 +58,7 @@ if (isset($_SESSION['logged_in'])) {
                                     </td>
                                 </form>
                             </tr>
+
                             <tr>
                                 <th scope="row">Total</th>
                                 <td colspan="3"></td>
