@@ -17,7 +17,7 @@ try {
     $queryExecute = mysqli_query($conn, $query);
 
     if ($queryExecute) {
-        header("Location: ../bookings.php?created=true");
+        header("Location: ../index.php?created=true");
     } else {
         echo "<script>alert('Store booking gagal');</script>";
     }

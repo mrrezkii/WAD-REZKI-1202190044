@@ -24,8 +24,11 @@ if (isset($_SESSION['logged_in'])) {
 }
 ?>
 <main>
-    <div class="alert alert-success hide visually-hidden" role="alert" id="alert">
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-login">
         Berhasil login
+    </div>
+    <div class="alert alert-success hide visually-hidden" role="alert" id="alert-booking">
+        Berhasil memesan tiket
     </div>
     <section class="m-auto" id="login-form">
         <div class="container">
@@ -136,9 +139,11 @@ if (isset($_SESSION['logged_in'])) {
 <script type="text/javascript">
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-    const alert = document.getElementById("alert");
+    const alertLogin = document.getElementById("alert-login");
+    const alertBooking = document.getElementById("alert-booking");
 
-    if (params['logged_in']) alert.classList.remove("visually-hidden");
+    if (params['logged_in']) alertLogin.classList.remove("visually-hidden");
+    if (params['created']) alertBooking.classList.remove("visually-hidden");
 
 
     var myModalEl = document.getElementById('bookingModal')
