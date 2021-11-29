@@ -14,7 +14,7 @@ include "helper/constant.php";
 <body>
 <?php
 if (isset($_SESSION['logged_in'])) {
-    if ($SESSION['logged_in'] == true) {
+    if ($_SESSION['logged_in'] == true) {
         include "component/navigation_logged_in.php";
     } else {
         include "component/navigation_not_logged_in.php";

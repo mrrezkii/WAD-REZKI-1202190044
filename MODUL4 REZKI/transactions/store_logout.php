@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_unset();
-$session_destroy();
+session_destroy();
 //if (isset($_COOKIE['logged_in'])) {
 //    setcookie("logged_in[username]", null, -1, '/');
 //    setcookie("logged_in[password]", null, -1, '/');

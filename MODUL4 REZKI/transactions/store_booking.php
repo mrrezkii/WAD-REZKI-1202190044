@@ -3,7 +3,7 @@ $conn = null;
 include "../helper/error.php";
 include "../helper/connection.php";
 
-
+session_start();
 $id = time();
 $user_id = (int)$_SESSION['id'];
 $nama_tempat = $_POST['nama_tempat'];
