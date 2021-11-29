@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-$user = "rezki";
-$password = "1202190044";
+$user = "root";
+$password = "";
 $db = "wad_modul4";
 
 $conn = mysqli_connect($server, $user, $password, $db);
