@@ -19,7 +19,8 @@ class VaccinesController extends Controller
     {
         return view('list_vaccine', [
             'title' => 'List Vaccine',
-            'active' => 'patient'
+            'active' => 'patient',
+            'vaccines' => Vaccines::all()
         ]);
     }
 
