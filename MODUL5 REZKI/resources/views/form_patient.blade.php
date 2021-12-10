@@ -3,7 +3,6 @@
 @section('container')
     <div class="d-flex flex-column">
         <h3 class="text-center">{{ "$condition $vaccine->name Patient" }}</h3>
-        {{--        @php(var_dump($condition))--}}
         @if($condition === 'Register')
             <form action="{{ url('/patient') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -41,6 +40,7 @@
                 @csrf
                 <div class="form-group mb-3 mx-5">
                     <label for="id" class="form-label">Vaccine Id</label>
+                    <input type="text" name="id" value="{{ $patient->id }}" hidden required>
                     <input type="text" class="form-control" id="id" name="id" value="{{ $vaccine->id }}" required
                            readonly>
                 </div>

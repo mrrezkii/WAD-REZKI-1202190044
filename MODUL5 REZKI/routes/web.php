@@ -21,11 +21,8 @@ Route::get('/', function () {
         'active' => 'home'
     ]);
 });
-
-Route::get('/vaccine', [VaccineController::class, 'index']);
 Route::get('/vaccines', [VaccineController::class, 'list']);
-Route::get('/vaccine/add', [VaccineController::class, 'add']);
-Route::get('/vaccine/update', [VaccineController::class, 'update']);
+Route::resource('/vaccine', VaccineController::class);
 Route::get('/patient/create/{id}', [PatientController::class, 'createByVaccine']);
 Route::resource('/patient', PatientController::class);
 

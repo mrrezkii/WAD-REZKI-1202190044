@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vaccine;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class VaccineController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|View
+     */
     public function index()
     {
         return view('vaccine', [
@@ -24,25 +34,79 @@ class VaccineController extends Controller
         ]);
     }
 
-    public function add()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function create()
     {
         return view('form_vaccine', [
             'title' => 'Add Vaccine',
-            'active' => 'vaccine'
+            'active' => 'vaccine',
+            'condition' => "Input",
         ]);
     }
 
-    public function update()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function store(Request $request)
     {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return Application|Factory|View
+     */
+    public function show($id)
+    {
+        $vaccine = Vaccine::find($id);
         return view('form_vaccine', [
-            'title' => 'Update Vaccine',
-            'active' => 'vaccine'
+            'title' => 'Add Vaccine',
+            'active' => 'vaccine',
+            'condition' => "Edit",
+            'vaccine' => $vaccine
         ]);
     }
 
-    public function delete()
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function edit($id)
     {
-        //TODO
+        //
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
