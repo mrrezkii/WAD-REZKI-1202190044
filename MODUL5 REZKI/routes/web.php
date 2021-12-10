@@ -26,9 +26,8 @@ Route::get('/vaccine', [VaccineController::class, 'index']);
 Route::get('/vaccines', [VaccineController::class, 'list']);
 Route::get('/vaccine/add', [VaccineController::class, 'add']);
 Route::get('/vaccine/update', [VaccineController::class, 'update']);
-Route::get('/patient', [PatientController::class, 'index']);
-Route::get('/patient/add', [PatientController::class, 'add']);
-Route::get('/patient/update', [PatientController::class, 'update']);
+Route::get('/patient/create/{id}', [PatientController::class, 'createByVaccine']);
+Route::resource('/patient', PatientController::class);
 
 
 

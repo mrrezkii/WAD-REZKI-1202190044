@@ -2,11 +2,12 @@
 
 @section('container')
     <div class="d-flex flex-column">
-        <h3 class="text-center">Insert/Edit Patient</h3>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <h3 class="text-center">{{ "Register $vaccine->name Patient" }}</h3>
+        <form action="{{ url('/patient') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-group mb-3 mx-5">
                 <label for="id" class="form-label">Vaccine Id</label>
-                <input type="text" class="form-control" id="id" name="id" required readonly>
+                <input type="text" class="form-control" id="id" name="id" value="{{ $vaccine->id }}" required readonly>
             </div>
             <div class="form-group mb-3 mx-5">
                 <label for="name" class="form-label">Patient Name</label>

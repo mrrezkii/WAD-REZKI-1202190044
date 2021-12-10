@@ -13,7 +13,8 @@
                         <p class="card-text">
                             {{ $vaccine->description }}
                         </p>
-                        <a href="/patient/add" class="btn btn-primary w-100 mt-auto">Vaccine Now</a>
+                        <a href="{{ url("/patient/create/$vaccine->id")  }}" class="btn btn-primary w-100 mt-auto">Vaccine
+                            Now</a>
                     </div>
                 </div>
             </div>

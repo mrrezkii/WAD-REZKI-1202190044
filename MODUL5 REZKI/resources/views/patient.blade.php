@@ -4,7 +4,7 @@
     @if($patients->count())
         <div class="d-flex flex-column">
             <h3 class="text-center">List Patient</h3>
-            <a href="/vaccines" class="btn btn-primary" style="width: 200px;">Register Patient</a>
+            <a href="{{ url('/vaccines') }}" class="btn btn-primary" style="width: 200px;">Register Patient</a>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -18,11 +18,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @php($count=0)
+                @php($count=1)
                 @foreach($patients as $patient)
-                    @php($count++)
                     <tr>
-                        <th scope="row">{{ $count }}</th>
+                        <th scope="row">{{ $count++ }}</th>
                         <td>{{ $patient->vaccines->name }}</td>
                         <td>{{ $patient->name }}</td>
                         <td>{{ $patient->nik }}</td>
@@ -40,7 +39,7 @@
     @else
         <div class="d-flex flex-column">
             <p class="text-secondary text-center">There is no data...</p>
-            <a href="/vaccines" class="btn btn-primary mx-auto" style="width: 200px;">Register Patient</a>
+            <a href="{{ url('/vaccines') }}" class="btn btn-primary mx-auto" style="width: 200px;">Register Patient</a>
         </div>
     @endif
 @endsection
