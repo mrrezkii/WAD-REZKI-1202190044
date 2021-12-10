@@ -45,6 +45,7 @@ class PatientController extends Controller
         return view('form_patient', [
             'title' => "Register Patient",
             'active' => 'patient',
+            'condition' => "Register",
             'vaccine' => $vaccine,
         ]);
     }
@@ -68,7 +69,15 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
+        $patient = Patient::find($id);
+        $vaccine = $patient->vaccines;
+        return view('form_patient', [
+            'title' => "Update Patient",
+            'active' => 'patient',
+            'condition' => "Edit",
+            'vaccine' => $vaccine,
+            'patient' => $patient,
+        ]);
     }
 
     /**
