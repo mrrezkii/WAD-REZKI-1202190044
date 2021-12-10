@@ -1,10 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="d-flex flex-column d-none">
-        <p class="text-secondary text-center">There is no data...</p>
-        <a href="/vaccine/add" class="btn btn-primary mx-auto" style="width: 200px;">Add Vaccine</a>
-    </div>
+    @if($vaccines->count())
     <div class="d-flex flex-column">
         <h3 class="text-center">List Vaccine</h3>
         <a href="/vaccine/add" class="btn btn-primary" style="width: 200px;">Add Vaccine</a>
@@ -18,16 +15,26 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Astra Zeneca</td>
-                <td>Rp2.0000</td>
-                <td class="w-25">
-                    <a href="/vaccine/update" class="btn btn-warning me-2">Edit</a>
-                    <a href="#" class="btn btn-danger ms-2">Delete</a>
-                </td>
-            </tr>
+            @php($count=0)
+            @foreach($vaccines as $vaccine)
+                @php($count++)
+                <tr>
+                    <th scope="row">{{ $count }}</th>
+                    <td>{{ $vaccine->name }}</td>
+                    <td>{{ "Rp " . number_format($vaccine->price, 2, ',', '.') }}</td>
+                    <td class="w-25">
+                        <a href="/vaccine/update" class="btn btn-warning me-2">Edit</a>
+                        <a href="#" class="btn btn-danger ms-2">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
+    @else
+        <div class="d-flex flex-column">
+            <p class="text-secondary text-center">There is no data...</p>
+            <a href="/vaccine/add" class="btn btn-primary mx-auto" style="width: 200px;">Add Vaccine</a>
+        </div>
+    @endif
 @endsection
