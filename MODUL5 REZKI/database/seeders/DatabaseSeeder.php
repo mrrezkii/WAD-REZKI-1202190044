@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Patients;
-use App\Models\Vaccines;
+use App\Models\Patient;
+use App\Models\Vaccine;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Vaccines::factory(9)->create();
-        Patients::factory(10)->create();
+        Vaccine::factory(9)->create();
+        Patient::factory(10)->create();
     }
 }

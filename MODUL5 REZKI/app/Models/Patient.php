@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vaccines extends Model
+class Patient extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $guarded = ['id'];
+    protected $with = ['vaccines'];
 
-    public function patients()
+    public function vaccines()
     {
-        return $this->hasMany(Patients::class);
+        return $this->belongsTo(Vaccine::class, 'vaccine_id');
     }
 }

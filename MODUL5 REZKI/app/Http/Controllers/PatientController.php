@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patients;
+use App\Models\Patient;
 
-class PatientsController extends Controller
+class PatientController extends Controller
 {
     public function index()
     {
         return view('patient', [
             'title' => 'Patient',
             'active' => 'patient',
-            'patients' => Patients::all()
+            'patients' => Patient::all()
         ]);
     }
 

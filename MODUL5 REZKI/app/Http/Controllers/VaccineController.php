@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vaccines;
+use App\Models\Vaccine;
 
-class VaccinesController extends Controller
+class VaccineController extends Controller
 {
     public function index()
     {
         return view('vaccine', [
             'title' => 'Vaccine',
             'active' => 'vaccine',
-            'vaccines' => Vaccines::all()
+            'vaccines' => Vaccine::all()
         ]);
     }
 
@@ -20,7 +20,7 @@ class VaccinesController extends Controller
         return view('list_vaccine', [
             'title' => 'List Vaccine',
             'active' => 'patient',
-            'vaccines' => Vaccines::all()
+            'vaccines' => Vaccine::all()
         ]);
     }
 

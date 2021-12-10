@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PatientsController;
-use App\Http\Controllers\VaccinesController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +22,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/vaccine', [VaccinesController::class, 'index']);
-Route::get('/vaccines', [VaccinesController::class, 'list']);
-Route::get('/vaccine/add', [VaccinesController::class, 'add']);
-Route::get('/vaccine/update', [VaccinesController::class, 'update']);
-Route::get('/patient', [PatientsController::class, 'index']);
-Route::get('/patient/add', [PatientsController::class, 'add']);
-Route::get('/patient/update', [PatientsController::class, 'update']);
+Route::get('/vaccine', [VaccineController::class, 'index']);
+Route::get('/vaccines', [VaccineController::class, 'list']);
+Route::get('/vaccine/add', [VaccineController::class, 'add']);
+Route::get('/vaccine/update', [VaccineController::class, 'update']);
+Route::get('/patient', [PatientController::class, 'index']);
+Route::get('/patient/add', [PatientController::class, 'add']);
+Route::get('/patient/update', [PatientController::class, 'update']);
 
 
 
