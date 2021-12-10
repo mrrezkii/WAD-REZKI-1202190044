@@ -11,4 +11,9 @@ class Vaccines extends Model
 
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function patients()
+    {
+        return $this->hasMany(Patients::class);
+    }
 }
