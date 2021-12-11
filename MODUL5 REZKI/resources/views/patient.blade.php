@@ -28,7 +28,7 @@
                         <td>{{ $patient->alamat }}</td>
                         <td>{{ $patient->no_hp }}</td>
                         <td class="w-25">
-                            <a href="{{ url("/patient/$patient->id") }}" class="btn btn-warning me-2">Edit</a>
+                            <a href="{{ url("/patient/$patient->id/edit") }}" class="btn btn-warning me-2">Edit</a>
                             <a href="#" class="btn btn-danger ms-2">Delete</a>
                         </td>
                     </tr>

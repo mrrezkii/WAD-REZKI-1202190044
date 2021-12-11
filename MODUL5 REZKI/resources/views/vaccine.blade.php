@@ -22,7 +22,7 @@
                         <td>{{ $vaccine->name }}</td>
                         <td>{{ "Rp " . number_format($vaccine->price, 2, ',', '.') }}</td>
                         <td class="w-25">
-                            <a href="{{ url("/vaccine/$vaccine->id") }}" class="btn btn-warning me-2">Edit</a>
+                            <a href="{{ url("/vaccine/$vaccine->id/edit") }}" class="btn btn-warning me-2">Edit</a>
                             <a href="#" class="btn btn-danger ms-2">Delete</a>
                         </td>
                     </tr>

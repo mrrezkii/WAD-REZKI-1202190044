@@ -69,6 +69,17 @@ class PatientController extends Controller
      */
     public function show($id)
     {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return Application|Factory|View
+     */
+    public function edit($id)
+    {
         $patient = Patient::find($id);
         $vaccine = $patient->vaccines;
         return view('form_patient', [
@@ -78,17 +89,6 @@ class PatientController extends Controller
             'vaccine' => $vaccine,
             'patient' => $patient,
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
