@@ -27,6 +27,7 @@ Route::resource('/vaccine', VaccineController::class);
 
 Route::get('/patient/create/{id}', [PatientController::class, 'createByVaccine']);
 Route::put('patient/{patient}', [PatientController::class, 'update']);
+Route::delete('patient/{patient}', [PatientController::class, 'destroy']);
 Route::resource('/patient', PatientController::class);
 
 

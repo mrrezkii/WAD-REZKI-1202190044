@@ -173,10 +173,11 @@ class PatientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        Patient::findOrFail($id)->delete();
+        return redirect('/patient')->with('success', 'Patient has been deleted');
     }
 }
