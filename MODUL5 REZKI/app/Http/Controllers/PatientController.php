@@ -24,7 +24,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('pages.patient.patient', [
+        return view('pages.patient.index', [
             'title' => 'Patient',
             'active' => 'patient',
             'patients' => Patient::all()

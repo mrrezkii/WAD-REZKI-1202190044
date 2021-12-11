@@ -22,7 +22,7 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        return view('pages.vaccine.vaccine', [
+        return view('pages.vaccine.index', [
             'title' => 'Vaccine',
             'active' => 'vaccine',
             'vaccines' => Vaccine::all()
