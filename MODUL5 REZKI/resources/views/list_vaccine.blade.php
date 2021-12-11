@@ -2,7 +2,9 @@
 
 @section('container')
     <div class="row">
-        @foreach($vaccines as $vaccine)
+        @if($vaccines->count())
+            @foreach($vaccines as $vaccine)
+
             <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
                 <div class="card mb-5" style="width: 22rem;">
                     <img src="{{ $vaccine->image }}"
@@ -18,6 +20,13 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
+        @else
+            <div class="d-flex flex-column">
+                <p class="text-secondary text-center">There is no data...</p>
+                <a href="{{ url('/vaccine/create') }}" class="btn btn-primary mx-auto" style="width: 200px;">Add
+                    Vaccine</a>
+            </div>
+        @endif
     </div>
 @endsection
