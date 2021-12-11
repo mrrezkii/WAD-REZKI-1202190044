@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Validation\ValidationException;
 
 class PatientController extends Controller
 {
@@ -60,14 +61,18 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'vaccine_id' => 'required|max:255',
-            'name' => 'required|max:255',
-            'nik' => 'required|max:255',
-            'alamat' => 'required|max:255',
-            'image_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            'no_hp' => 'required|max:255',
-        ]);
+        try {
+            $this->validate($request, [
+                'vaccine_id' => 'required|max:255',
+                'name' => 'required|max:255',
+                'nik' => 'required|max:255',
+                'alamat' => 'required|max:255',
+                'image_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                'no_hp' => 'required|max:255',
+            ]);
+        } catch (ValidationException $e) {
+            @dd($e);
+        }
 
         $imageFile = $request->file('image_ktp');
         $imageName = time() . "_" . $imageFile->getClientOriginalName();
@@ -83,7 +88,7 @@ class PatientController extends Controller
             'no_hp' => $request->no_hp
         ]);
 
-        return redirect('/patient')->with('success', 'New Vaccine is successfully saved');
+        return redirect('/patient')->with('success', 'New Patient is successfully saved');
     }
 
     /**
@@ -121,11 +126,47 @@ class PatientController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->validate($request, [
+                'vaccine_id' => 'required|max:255',
+                'name' => 'required|max:255',
+                'nik' => 'required|max:255',
+                'alamat' => 'required|max:255',
+                'image_ktp' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                'no_hp' => 'required|max:255',
+            ]);
+        } catch (ValidationException $e) {
+            @dd($e);
+        }
+
+        $imageFile = $request->file('image_ktp');
+        if (!is_null($imageFile)) {
+            $imageName = time() . "_" . $imageFile->getClientOriginalName();
+            $path = 'upload/patients';
+            $imageFile->move($path, $imageName);
+            Patient::whereId($id)->update([
+                'vaccine_id' => $request->vaccine_id,
+                'name' => $request->name,
+                'nik' => $request->nik,
+                'alamat' => $request->alamat,
+                'image_ktp' => "/$path/$imageName",
+                'no_hp' => $request->no_hp
+            ]);
+        } else {
+            Patient::whereId($id)->update([
+                'vaccine_id' => $request->vaccine_id,
+                'name' => $request->name,
+                'nik' => $request->nik,
+                'alamat' => $request->alamat,
+                'no_hp' => $request->no_hp
+            ]);
+        }
+
+        return redirect('/patient')->with('success', 'Patient has been updated');
     }
 
     /**

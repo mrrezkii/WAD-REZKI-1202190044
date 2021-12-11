@@ -22,8 +22,11 @@ Route::get('/', function () {
     ]);
 });
 Route::get('/vaccines', [VaccineController::class, 'list']);
+Route::get('/vaccine/{vaccine}', [VaccineController::class, 'update']);
 Route::resource('/vaccine', VaccineController::class);
+
 Route::get('/patient/create/{id}', [PatientController::class, 'createByVaccine']);
+Route::put('patient/{patient}', [PatientController::class, 'update']);
 Route::resource('/patient', PatientController::class);
 
 

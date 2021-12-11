@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Validation\ValidationException;
 
 class VaccineController extends Controller
 {
@@ -58,12 +59,16 @@ class VaccineController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'price' => 'required|max:255',
-            'description' => 'required|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-        ]);
+        try {
+            $this->validate($request, [
+                'name' => 'required|max:255',
+                'price' => 'required|max:255',
+                'description' => 'required|max:255',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            ]);
+        } catch (ValidationException $e) {
+            @dd($e);
+        }
 
         $imageFile = $request->file('image');
         $imageName = time() . "_" . $imageFile->getClientOriginalName();
@@ -113,11 +118,41 @@ class VaccineController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->validate($request, [
+                'name' => 'required|max:255',
+                'price' => 'required|max:255',
+                'description' => 'required|max:255',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            ]);
+        } catch (ValidationException $e) {
+            @dd($e);
+        }
+        $imageFile = $request->file('image');
+        if (!is_null($imageFile)) {
+            $imageName = time() . "_" . $imageFile->getClientOriginalName();
+            $path = 'upload/vaccines';
+            $imageFile->move($path, $imageName);
+
+            Vaccine::whereId($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'description' => $request->description,
+                'image' => "/$path/$imageName",
+            ]);
+        } else {
+            Vaccine::whereId($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'description' => $request->description
+            ]);
+        }
+
+        return redirect('/vaccine')->with('success', 'Vaccine has been updated');
     }
 
     /**
