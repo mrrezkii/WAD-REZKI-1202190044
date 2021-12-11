@@ -7,8 +7,8 @@
             <form action="{{ url('/vaccine') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3 mx-5">
-                    <label for="vaccine" class="form-label">Vaccine Name</label>
-                    <input type="text" class="form-control" id="vaccine" name="vaccine" required>
+                    <label for="name" class="form-label">Vaccine Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="form-group mb-3 mx-5">
                     <label for="price" class="form-label">Price</label>
@@ -16,9 +16,9 @@
                         <span class="input-group-text">Rp</span>
                         <input type="number" class="form-control" id="price" name="price" required>
                     </div>
-            </div>
-            <div class=" form-group mb-3 mx-5">
-                <label for="description" class="form-label">Description</label>
+                </div>
+                <div class=" form-group mb-3 mx-5">
+                    <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
             </div>
                 <div class="form-group mb-3 mx-5">
@@ -33,9 +33,9 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group mb-3 mx-5">
-                    <label for="vaccine" class="form-label">Vaccine Name</label>
+                    <label for="name" class="form-label">Vaccine Name</label>
                     <input type="text" name="id" value="{{ $vaccine->id }}" hidden required>
-                    <input type="text" class="form-control" id="vaccine" name="vaccine" value="{{ $vaccine->name }}"
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $vaccine->name }}"
                            required>
                 </div>
                 <div class="form-group mb-3 mx-5">

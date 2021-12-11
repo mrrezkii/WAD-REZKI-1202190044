@@ -6,8 +6,10 @@ use App\Models\Vaccine;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class VaccineController extends Controller
 {
@@ -52,11 +54,30 @@ class VaccineController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'description' => 'required|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+
+        $imageFile = $request->file('image');
+        $imageName = time() . "_" . $imageFile->getClientOriginalName();
+        $path = 'upload';
+        $imageFile->move($path, $imageName);
+
+        Vaccine::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => "/upload/$imageName",
+        ]);
+
+        return redirect('/vaccine')->with('success', 'New Vaccine is successfully saved');
     }
 
     /**
