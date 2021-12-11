@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group mb-3 mx-5">
                     <label for="image" class="form-label">Image</label>
-                    <input type="file" accept="image/png, image/gif, image/jpeg"
+                    <input onchange="validateSize(this)" type="file" accept="image/png, image/gif, image/jpeg"
                            class="form-control form-control-file" id="image" name="image" required>
                 </div>
                 <button type="submit" class="btn btn-primary mx-5">Submit</button>
@@ -52,11 +52,20 @@
                 </div>
                 <div class="form-group mb-3 mx-5">
                     <label for="image" class="form-label">Image</label>
-                    <input type="file" accept="image/png, image/gif, image/jpeg"
+                    <input onchange="validateSize(this)" type="file" accept="image/png, image/gif, image/jpeg"
                            class="form-control form-control-file" id="image" name="image">
                 </div>
                 <button type="submit" class="btn btn-primary mx-5">Submit</button>
             </form>
         @endif
     </div>
+    <script type="text/javascript">
+        function validateSize(input) {
+            const fileSize = input.files[0].size / 1024 / 1024;
+            if (fileSize > 1) {
+                alert('File size exceeds 1 Mb');
+                document.getElementById('image').value = "";
+            }
+        }
+    </script>
 @endsection
