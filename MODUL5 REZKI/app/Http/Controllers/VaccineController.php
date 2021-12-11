@@ -67,14 +67,14 @@ class VaccineController extends Controller
 
         $imageFile = $request->file('image');
         $imageName = time() . "_" . $imageFile->getClientOriginalName();
-        $path = 'upload';
+        $path = 'upload/vaccines';
         $imageFile->move($path, $imageName);
 
         Vaccine::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'image' => "/upload/$imageName",
+            'image' => "/$path/$imageName",
         ]);
 
         return redirect('/vaccine')->with('success', 'New Vaccine is successfully saved');

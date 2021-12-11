@@ -7,30 +7,31 @@
             <form action="{{ url('/patient') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3 mx-5">
-                    <label for="id" class="form-label">Vaccine Id</label>
-                    <input type="text" class="form-control" id="id" name="id" value="{{ $vaccine->id }}" required
+                    <label for="vaccine_id" class="form-label">Vaccine Id</label>
+                    <input type="text" class="form-control" id="vaccine_id" name="vaccine_id" value="{{ $vaccine->id }}"
+                           required
                            readonly>
                 </div>
                 <div class="form-group mb-3 mx-5">
                     <label for="name" class="form-label">Patient Name</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
-            <div class="form-group mb-3 mx-5">
-                <label for="nik" class="form-label">NIK</label>
-                <input type="number" class="form-control" id="nik" name="nik" required>
-            </div>
-            <div class="form-group mb-3 mx-5">
-                <label for="address" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="address" name="address" required>
-            </div>
-            <div class="form-group mb-3 mx-5">
-                <label for="ktp" class="form-label">KTP</label>
-                <input type="file" accept="image/png, image/gif, image/jpeg"
-                       class="form-control form-control-file" id="ktp" name="ktp" required>
-            </div>
+                <div class="form-group mb-3 mx-5">
+                    <label for="nik" class="form-label">NIK</label>
+                    <input type="number" class="form-control" id="nik" name="nik" required>
+                </div>
+                <div class="form-group mb-3 mx-5">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" name="alamat" required>
+                </div>
+                <div class="form-group mb-3 mx-5">
+                    <label for="image_ktp" class="form-label">KTP</label>
+                    <input type="file" accept="image/png, image/gif, image/jpeg"
+                           class="form-control form-control-file" id="image_ktp" name="image_ktp" required>
+                </div>
                 <div class="form-group mb-3 mx-5">
                     <label for="no_hp" class="form-label">No Hp</label>
-                    <input type="number" class="form-control" id="no_hp" name="no_hp" required>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                 </div>
                 <button type="submit" class="btn btn-primary mx-5">Submit</button>
             </form>
@@ -40,8 +41,9 @@
                 @csrf
                 <div class="form-group mb-3 mx-5">
                     <label for="id" class="form-label">Vaccine Id</label>
-                    <input type="text" name="id" value="{{ $patient->id }}" hidden required>
-                    <input type="text" class="form-control" id="id" name="id" value="{{ $vaccine->id }}" required
+                    <input type="text" name="vaccine_id" value="{{ $patient->id }}" hidden required>
+                    <input type="text" class="form-control" id="vaccine_id" name="vaccine_id" value="{{ $vaccine->id }}"
+                           required
                            readonly>
                 </div>
                 <div class="form-group mb-3 mx-5">
@@ -53,14 +55,15 @@
                     <input type="number" class="form-control" id="nik" name="nik" value="{{ $patient->nik }}" required>
                 </div>
                 <div class="form-group mb-3 mx-5">
-                    <label for="address" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="address" name="address" value="{{ $patient->alamat }}"
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $patient->alamat }}"
                            required>
                 </div>
                 <div class="form-group mb-3 mx-5">
-                    <label for="ktp" class="form-label">KTP</label>
+                    <label for="image_ktp" class="form-label">KTP</label>
                     <input type="file" accept="image/png, image/gif, image/jpeg"
-                           class="form-control form-control-file" id="ktp" name="ktp" value="{{ $patient->image_ktp }}"
+                           class="form-control form-control-file" id="image_ktp" name="image_ktp"
+                           value="{{ $patient->image_ktp }}"
                            required>
                 </div>
                 <div class="form-group mb-3 mx-5">
