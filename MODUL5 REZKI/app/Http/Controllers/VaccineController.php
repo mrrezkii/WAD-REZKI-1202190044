@@ -139,7 +139,11 @@ class VaccineController extends Controller
             $path = 'upload/vaccines';
             $imageFile->move($path, $imageName);
 
-            Vaccine::whereId($id)->update([
+            $data = Vaccine::findOrFail($id);
+            if (File::exists(public_path($data->image))) {
+                File::delete(public_path($data->image));
+            }
+            $data->update([
                 'name' => $request->name,
                 'price' => $request->price,
                 'description' => $request->description,

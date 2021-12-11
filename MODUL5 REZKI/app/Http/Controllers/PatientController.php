@@ -150,7 +150,12 @@ class PatientController extends Controller
             $imageName = time() . "_" . $imageFile->getClientOriginalName();
             $path = 'upload/patients';
             $imageFile->move($path, $imageName);
-            Patient::whereId($id)->update([
+
+            $data = Patient::findOrFail($id);
+            if (File::exists(public_path($data->image_ktp))) {
+                File::delete(public_path($data->image_ktp));
+            }
+            $data->update([
                 'vaccine_id' => $request->vaccine_id,
                 'name' => $request->name,
                 'nik' => $request->nik,
