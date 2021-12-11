@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vaccine;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -81,7 +82,7 @@ class VaccineController extends Controller
             'image' => "/$path/$imageName",
         ]);
 
-        return redirect('/vaccine')->with('success', 'New Vaccine is successfully saved');
+        return redirect('/vaccine')->with('success', "$request->name is successfully saved");
     }
 
     /**
@@ -151,7 +152,7 @@ class VaccineController extends Controller
             ]);
         }
 
-        return redirect('/vaccine')->with('success', 'Vaccine has been updated');
+        return redirect('/vaccine')->with('success', "$request->name has been updated");
     }
 
     /**
@@ -162,7 +163,11 @@ class VaccineController extends Controller
      */
     public function destroy($id)
     {
-        Vaccine::findOrFail($id)->delete();
-        return redirect('/vaccine')->with('success', 'Vaccine has been deleted');
+        try {
+            Vaccine::findOrFail($id)->delete();
+            return redirect('/vaccine')->with('success', "Vaccine has been deleted");
+        } catch (Exception $e) {
+            return redirect('/vaccine')->with('failed', "Vaccine can't be deleted because it's still in use");
+        }
     }
 }

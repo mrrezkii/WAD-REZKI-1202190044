@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use App\Models\Vaccine;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -88,7 +89,7 @@ class PatientController extends Controller
             'no_hp' => $request->no_hp
         ]);
 
-        return redirect('/patient')->with('success', 'New Patient is successfully saved');
+        return redirect('/patient')->with('success', "$request->name is successfully saved");
     }
 
     /**
@@ -166,7 +167,7 @@ class PatientController extends Controller
             ]);
         }
 
-        return redirect('/patient')->with('success', 'Patient has been updated');
+        return redirect('/patient')->with('success', "$request->name has been updated");
     }
 
     /**
@@ -177,7 +178,11 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        Patient::findOrFail($id)->delete();
-        return redirect('/patient')->with('success', 'Patient has been deleted');
+        try {
+            Patient::findOrFail($id)->delete();
+            return redirect('/patient')->with('success', 'Patient has been deleted');
+        } catch (Exception $e) {
+            return redirect('/patient')->with('failed', "Patient can't be deleted because it's still in use");
+        }
     }
 }

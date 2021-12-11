@@ -2,6 +2,19 @@
 
 @section('container')
     @if($patients->count())
+        @if(session()->get('success') || session()->get('failed'))
+            @if(session()->get('success'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session()->get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @else(session()->get('failed'))
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ session()->get('failed') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div><br/>
+            @endif
+        @endif
         <div class="d-flex flex-column">
             <h3 class="text-center">List Patient</h3>
             <a href="{{ url('/vaccines') }}" class="btn btn-primary" style="width: 200px;">Register Patient</a>
