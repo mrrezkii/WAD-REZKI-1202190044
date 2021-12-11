@@ -170,10 +170,10 @@ class VaccineController extends Controller
     {
         try {
             $data = Vaccine::findOrFail($id);
+            $data->delete();
             if (File::exists(public_path($data->image))) {
                 File::delete(public_path($data->image));
             }
-            $data->delete();
             return redirect('/vaccine')->with('success', "Vaccine has been deleted");
         } catch (Exception $e) {
             return redirect('/vaccine')->with('failed', "Vaccine can't be deleted because it's still in use");

@@ -186,10 +186,10 @@ class PatientController extends Controller
     {
         try {
             $data = Patient::findOrFail($id);
+            $data->delete();
             if (File::exists(public_path($data->image_ktp))) {
                 File::delete(public_path($data->image_ktp));
             }
-            $data->delete();
             return redirect('/patient')->with('success', 'Patient has been deleted');
         } catch (Exception $e) {
             return redirect('/patient')->with('failed', "Patient can't be deleted because it's still in use");
