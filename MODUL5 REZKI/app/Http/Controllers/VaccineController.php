@@ -22,7 +22,7 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        return view('vaccine', [
+        return view('pages.vaccine.vaccine', [
             'title' => 'Vaccine',
             'active' => 'vaccine',
             'vaccines' => Vaccine::all()
@@ -31,7 +31,7 @@ class VaccineController extends Controller
 
     public function list()
     {
-        return view('list_vaccine', [
+        return view('pages.vaccine.list_vaccine', [
             'title' => 'List Vaccine',
             'active' => 'patient',
             'vaccines' => Vaccine::all()
@@ -45,7 +45,7 @@ class VaccineController extends Controller
      */
     public function create()
     {
-        return view('form_vaccine', [
+        return view('pages.vaccine.form_vaccine', [
             'title' => 'Add Vaccine',
             'active' => 'vaccine',
             'condition' => "Input",
@@ -106,7 +106,7 @@ class VaccineController extends Controller
     public function edit($id)
     {
         $vaccine = Vaccine::find($id);
-        return view('form_vaccine', [
+        return view('pages.vaccine.form_vaccine', [
             'title' => 'Add Vaccine',
             'active' => 'vaccine',
             'condition' => "Edit",

@@ -24,7 +24,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('patient', [
+        return view('pages.patient.patient', [
             'title' => 'Patient',
             'active' => 'patient',
             'patients' => Patient::all()
@@ -38,7 +38,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('form_patient', [
+        return view('pages.patient.form_patient', [
             'title' => "Register Patient",
             'active' => 'patient'
         ]);
@@ -47,7 +47,7 @@ class PatientController extends Controller
     public function createByVaccine($id)
     {
         $vaccine = Vaccine::find($id);
-        return view('form_patient', [
+        return view('pages.patient.form_patient', [
             'title' => "Register Patient",
             'active' => 'patient',
             'condition' => "Register",
@@ -114,7 +114,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
         $vaccine = $patient->vaccines;
-        return view('form_patient', [
+        return view('pages.patient.form_patient', [
             'title' => "Update Patient",
             'active' => 'patient',
             'condition' => "Edit",

@@ -4,7 +4,7 @@
     <h2 class="text-center">About Us</h2>
     <div class="row mt-5">
         <div class="col-md-6 col-sm-12">
-            <img src="https://svgshare.com/i/ceU.svg" class="img-fluid" alt="medical care" width="500">
+            <img src="medical_care.png" class="img-fluid" alt="medical care" width="500">
         </div>
         <div class="col-md-6 col-sm-12">
             <p class="text-secondary">
