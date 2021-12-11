@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vaccine;
 use Exception;
+use File;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -164,7 +165,11 @@ class VaccineController extends Controller
     public function destroy($id)
     {
         try {
-            Vaccine::findOrFail($id)->delete();
+            $data = Vaccine::findOrFail($id);
+            if (File::exists(public_path($data->image))) {
+                File::delete(public_path($data->image));
+            }
+            $data->delete();
             return redirect('/vaccine')->with('success', "Vaccine has been deleted");
         } catch (Exception $e) {
             return redirect('/vaccine')->with('failed', "Vaccine can't be deleted because it's still in use");

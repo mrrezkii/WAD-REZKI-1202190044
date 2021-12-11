@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Models\Vaccine;
 use Exception;
+use File;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -179,7 +180,11 @@ class PatientController extends Controller
     public function destroy($id)
     {
         try {
-            Patient::findOrFail($id)->delete();
+            $data = Patient::findOrFail($id);
+            if (File::exists(public_path($data->image_ktp))) {
+                File::delete(public_path($data->image_ktp));
+            }
+            $data->delete();
             return redirect('/patient')->with('success', 'Patient has been deleted');
         } catch (Exception $e) {
             return redirect('/patient')->with('failed', "Patient can't be deleted because it's still in use");
