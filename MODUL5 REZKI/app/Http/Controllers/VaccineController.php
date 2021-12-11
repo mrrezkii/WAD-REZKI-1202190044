@@ -8,7 +8,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\ValidationException;
 
@@ -159,10 +158,11 @@ class VaccineController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        Vaccine::findOrFail($id)->delete();
+        return redirect('/vaccine')->with('success', 'Vaccine has been deleted');
     }
 }

@@ -29,7 +29,7 @@
                         <td>{{ $patient->no_hp }}</td>
                         <td class="w-25">
                             <a href="{{ url("/patient/$patient->id/edit") }}" class="btn btn-warning me-2">Edit</a>
-                            <button onclick="btnDelete('{{ $patient->id }}', '{{ $patient->name }}')" href="#"
+                            <button onclick="btnDelete('{{ $patient->id }}', '{{ $patient->name }}')"
                                     class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 Delete
                             </button>
@@ -59,33 +59,23 @@
                 </form>
             </div>
         </div>
+        <script type="text/javascript">
+            const modal = document.getElementById("deleteModal");
+            modal.addEventListener('hidden.bs.modal', function (_) {
+                document.getElementById("id").remove();
+                document.getElementById("deleteModalLabel").innerText = "";
+            });
+
+            function btnDelete(id, name) {
+                document.getElementById("deleteModalLabel").innerText = "Are you sure want to delete\t" + name + " ?";
+                document.getElementById("deleteAction").action = "/patient/" + id;
+
+            }
+        </script>
     @else
         <div class="d-flex flex-column">
             <p class="text-secondary text-center">There is no data...</p>
             <a href="{{ url('/vaccines') }}" class="btn btn-primary mx-auto" style="width: 200px;">Register Patient</a>
         </div>
     @endif
-    <script type="text/javascript">
-        const modal = document.getElementById("deleteModal");
-        modal.addEventListener('hidden.bs.modal', function (_) {
-            document.getElementById("id").remove();
-            document.getElementById("deleteModalLabel").value = "";
-        });
-
-        function btnDelete(id, name) {
-            document.getElementById("deleteModalLabel").innerText = "Are you sure want to delete" + name + " ?";
-            let addElement = document.createElement("input");
-            Object.assign(addElement, {
-                id: "id",
-                name: "id",
-                type: "text",
-                hidden: "hidden",
-                value: id
-            });
-
-            document.getElementById("hidden-value").append(addElement);
-            document.getElementById("deleteAction").action = "/patient/" + id;
-
-        }
-    </script>
 @endsection
