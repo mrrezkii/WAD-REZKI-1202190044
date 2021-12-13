@@ -58,7 +58,7 @@ class VaccineController extends Controller
      * @param Request $request
      * @return Application|Redirector|RedirectResponse
      */
-    public function stre(Request $request)
+    public function store(Request $request)
     {
         try {
             $this->validate($request, [

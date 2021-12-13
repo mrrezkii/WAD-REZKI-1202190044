@@ -82,7 +82,7 @@ class PatientController extends Controller
         $imageFile->move($path, $imageName);
 
         Patient::create([
-            'vaccine_id' => $request->vaccineid,
+            'vaccine_id' => $request->vaccine_id,
             'name' => $request->name,
             'nik' => $request->nik,
             'alamat' => $request->alamat,
